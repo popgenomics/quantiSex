@@ -15,7 +15,7 @@
 #define STOP  "\x1B[0m"
 
 //	gcc quantiSex.c -L/usr/local/lib -lgsl -lgslcblas -lm -Wall -Wextra -Wshadow -Werror -O3 -o quantiSex
-//	./quantiSex 100 200 100 20 0.00001 1 0.0001 10 0 0.3 1 0 1 123
+//	./quantiSex 100 200 100 10 0.00001 1 0.0001 10 0 0.3 1 0 1 123
 
 typedef struct Deme Deme;
 struct Deme{
