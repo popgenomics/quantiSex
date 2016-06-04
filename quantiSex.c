@@ -6,7 +6,7 @@
 #include <gsl/gsl_randist.h>
 #include <gsl/gsl_statistics.h>
 #include <gsl/gsl_permutation.h>
-#define VERSION "03.06.2016"
+#define VERSION "05.06.2016"
 #define DEPENDENCY "diveRsity.R\n"
 #define MAX_NUMBER_OF_INITIAL_NTRL_ALLELES 999	// number of segregating alleles when generating the first parental population
 #define RANGE 0.1	// value in [0;1] to modify the current allelic effect between [(1-RANGE) x current_value ; (1+RANGE) * current_value].
@@ -63,8 +63,8 @@ int main(int argc, char *argv[]){
 	const int recolonization = atoi(argv[11]);	// number of recolonizing individuals
 	const int sexualSystem = atoi(argv[12]);    // 0 = only hermaphrodites; 1 = XY system; 2 = ZW system
 	const double sexAvantage = atof(argv[13]); // avantage confered by the Y or Z chromosome over hermaphrodites
-	const int seed = atoi(argv[14]);
-	const double selfingRate = atof(argv[15]); // probability to have an ovule being fertilized by sperm from the same individual
+	const double selfingRate = atof(argv[14]); // probability to have an ovule being fertilized by sperm from the same individual
+	const int seed = atoi(argv[15]);
 
 	// Random generator
         const gsl_rng_type *T;
@@ -978,7 +978,7 @@ void statisticsPopulations(Deme* population, const int nDemes, const int maxIndP
 
 void checkCommandLine(int argc){
 	if(argc != 16){
-		printf("\n%sThe number of provided arguments is not correct.%s\nYou provided %s%d%s argument while %s14%s are expected:\n\t\
+		printf("\n%sThe number of provided arguments is not correct.%s\nYou provided %s%d%s argument while %s15%s are expected:\n\t\
 		%s1.%s  Number of demes (>0)\n\t\
 		%s2.%s  Max number of individuals per deme (>0)\n\t\
 		%s3.%s  Number of generations (>0)\n\n\t\
@@ -992,9 +992,9 @@ void checkCommandLine(int argc){
 		%s11.%s Number of individuals recolonizing an extincted deme (>0)\n\n\t\
 		%s12.%s sexualSystem is equal to 0 if autosomal, equal to 1 if XY and equal to 2 if ZW\n\t\
 		%s13.%s Sexual effects of heterogametic sex (if equal to 1.5 in XY system, males have a 50 percent advantage to sire available ovules). Required but neglected if sexualSystem == 0\n\t\
-		%s14.%s Seed for the random generator (>0)\n\t\
-		%s15.%s Selfing rate of hermaphrodites, fixed over time (in [0-1])\n\n\
-		%s\tExample:%s ./quantiSex 100 100 100 10 0.0001 1 0.00001 100 1 0.1 1 0 2 123 0.1\n\n\
+		%s14.%s Selfing rate of hermaphrodites, fixed over time (in [0-1])\n\t\
+		%s15.%s Seed for the random generator (>0)\n\n\
+		%s\tExample:%s ./quantiSex 100 100 100 10 0.0001 1 0.00001 100 1 0.1 1 0 2 0.1 123\n\n\
 		version: %s\n\n\t\tdependencies: \t%s\n\n", KRED, STOP, KRED, argc-1, STOP, KRED, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KRED, STOP, VERSION, DEPENDENCY);
 
 		exit(0);
