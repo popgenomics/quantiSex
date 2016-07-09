@@ -6,7 +6,7 @@
 #include <gsl/gsl_randist.h>
 #include <gsl/gsl_statistics.h>
 #include <gsl/gsl_permutation.h>
-#define VERSION "05.06.2016"
+#define VERSION "08.07.2016"
 #define DEPENDENCY "diveRsity.R\n"
 #define MAX_NUMBER_OF_INITIAL_NTRL_ALLELES 999	// number of segregating alleles when generating the first parental population
 #define RANGE 0.1	// value in [0;1] to modify the current allelic effect between [(1-RANGE) x current_value ; (1+RANGE) * current_value].
@@ -37,11 +37,11 @@ void setToZero(const int nDemes, int nImmigrants[], int extinctionStatus[], int 
 void initializeNewPopulation(Deme* newPopulation, const int nDemes, const int maxIndPerDem, const int nProducedSeeds[], const int nNtrlLoci, const int nQuantiLoci, const int fecundity);
 void panmixie(gsl_rng* r, Deme* population, Deme* newPopulation, const int nDemes, const int nNtrlLoci, const int nQuantiLoci, const double ntrlMutation, const double quantiMutation, const int fecundity, const double sexAvantage, const int sexualSystem, const double selfingRate);
 void weightedSample(gsl_rng* r, const double* liste, const double* weights, double* target, const int sizeOfListe, const int nTrials);
-void replacement(gsl_rng* r, Deme* population, Deme* newPopulation, const int nDemes, const int maxIndPerDem, const int nNtrlLoci, const int nQuantiLoci, const int nImmigrants[], int nProducedSeeds[], int extinctionStatus[], const int recolonization, const int generation, const int sexualSystem);
+void replacement(gsl_rng* r, Deme* population, Deme* newPopulation, const int nDemes, const int maxIndPerDem, const int nNtrlLoci, const int nQuantiLoci, const int nImmigrants[], int nProducedSeeds[], int extinctionStatus[], const int recolonization, const int generation, const int sexualSystem, const int colonizationModel);
 void writeNindividuals(const Deme* population, const int nDemes, const double extinction, const double migration, const int seed);
 void genePop(Deme* population, const int nDemes, const int nNtrlLoci, const int seed, int time);
 void checkCommandLine(int argc);
-void statisticsPopulations(Deme* population, const int nDemes, const int maxIndPerDem, const int nQuantiLoci, const int fecundity, const double migration, const double extinction, const int recolonization, const int sexualSystem, const double sexAvantage, const int seed, int time, const double selfingRate);
+void statisticsPopulations(Deme* population, const int nDemes, const int maxIndPerDem, const int nQuantiLoci, const int fecundity, const double migration, const double extinction, const int recolonization, const int sexualSystem, const double sexAvantage, const int seed, int time, const double selfingRate, const int colonizationModel);
 double fst(const int maxIndPerDem, const double extinction, const int recolonization, const double migration);
 
 int main(int argc, char *argv[]){
@@ -61,10 +61,11 @@ int main(int argc, char *argv[]){
 	const double migration = atof(argv[9]);	// immigration rate
 	const double extinction = atof(argv[10]);	// extinction rate
 	const int recolonization = atoi(argv[11]);	// number of recolonizing individuals
-	const int sexualSystem = atoi(argv[12]);    // 0 = only hermaphrodites; 1 = XY system; 2 = ZW system
-	const double sexAvantage = atof(argv[13]); // avantage confered by the Y or Z chromosome over hermaphrodites
-	const double selfingRate = atof(argv[14]); // probability to have an ovule being fertilized by sperm from the same individual
-	const int seed = atoi(argv[15]);
+	const int colonizationModel = atoi(argv[12]);	// 0 = migrant pool model 1 = propagule pool model
+	const int sexualSystem = atoi(argv[13]);    // 0 = only hermaphrodites; 1 = XY system; 2 = ZW system
+	const double sexAvantage = atof(argv[14]); // avantage confered by the Y or Z chromosome over hermaphrodites
+	const double selfingRate = atof(argv[15]); // probability to have an ovule being fertilized by sperm from the same individual
+	const int seed = atoi(argv[16]);
 
 	// Random generator
         const gsl_rng_type *T;
@@ -107,7 +108,7 @@ int main(int argc, char *argv[]){
 
 		panmixie(r, population, newPopulation, nDemes, nNtrlLoci, nQuantiLoci,  ntrlMutation, quantiMutation, fecundity, sexAvantage, sexualSystem, selfingRate);
 
-		statisticsPopulations(newPopulation, nDemes, maxIndPerDem, nQuantiLoci, fecundity, migration, extinction, recolonization, sexualSystem, sexAvantage, seed, i, selfingRate);
+		statisticsPopulations(newPopulation, nDemes, maxIndPerDem, nQuantiLoci, fecundity, migration, extinction, recolonization, sexualSystem, sexAvantage, seed, i, selfingRate, colonizationModel);
 		if(i == nGeneration){
 			genePop(newPopulation, nDemes, nNtrlLoci, seed, i);
 		}
@@ -123,7 +124,7 @@ int main(int argc, char *argv[]){
 			exit(0);
 		}
 
-		replacement(r, population, newPopulation, nDemes, maxIndPerDem, nNtrlLoci, nQuantiLoci, nImmigrants, nProducedSeeds, extinctionStatus, recolonization, i, sexualSystem); // replace the parents (poplation) by the offspring (newPopulation)
+		replacement(r, population, newPopulation, nDemes, maxIndPerDem, nNtrlLoci, nQuantiLoci, nImmigrants, nProducedSeeds, extinctionStatus, recolonization, i, sexualSystem, colonizationModel); // replace the parents (poplation) by the offspring (newPopulation)
 
 		free(nImmigrants);
 		free(extinctionStatus);
@@ -470,7 +471,7 @@ void panmixie(gsl_rng* r, Deme* population, Deme* newPopulation, const int nDeme
 	}	// end of loop over the nDemes
 }
 
-void replacement(gsl_rng* r, Deme* population, Deme* newPopulation, const int nDemes, const int maxIndPerDem, const int nNtrlLoci, const int nQuantiLoci, const int nImmigrants[], int nProducedSeeds[], int extinctionStatus[], const int recolonization, const int generation, const int sexualSystem){
+void replacement(gsl_rng* r, Deme* population, Deme* newPopulation, const int nDemes, const int maxIndPerDem, const int nNtrlLoci, const int nQuantiLoci, const int nImmigrants[], int nProducedSeeds[], int extinctionStatus[], const int recolonization, const int generation, const int sexualSystem, const int colonizationModel){
 	int i = 0;
 	int j = 0;
 	int k = 0;
@@ -512,7 +513,7 @@ void replacement(gsl_rng* r, Deme* population, Deme* newPopulation, const int nD
 	}
 
 	for(i=0; i<nDemes; i++){
-		taille = newPopulation[i].nIndividus + nImmigrants[i];
+		taille = newPopulation[i].nIndividus + nImmigrants[i]; // total number of individuals in a deme: autochtones + migrants
 		if(extinctionStatus[i] == 1){
 			taille = recolonization;
 		}
@@ -613,7 +614,13 @@ void replacement(gsl_rng* r, Deme* population, Deme* newPopulation, const int nD
 				exit(0);
 			}
 
-			weightedSample(r, indexOfDemes, nProducedSeedsDouble, emigrantDemes, (nDemes - nExtinctedDemes), population[i].nIndividus); // return the indexes of nImmigrants[i] emigrant demes from nDemes. When extinctionStatus==1, all individuals making the deme are imigrants
+			weightedSample(r, indexOfDemes, nProducedSeedsDouble, emigrantDemes, (nDemes - nExtinctedDemes), population[i].nIndividus); // return the indexes of nImmigrants[i] emigrant demes from nDemes. When extinctionStatus==1, all individuals making the deme are "imigrants". Here, emigrant demes are different --> migrant pool model
+			if(colonizationModel == 1 && recolonization > 1){ // --> if the user specified a propagule pool model
+				for(j = 1; j<population[i].nIndividus; j++){
+					emigrantDemes[j] = emigrantDemes[0]; // all emigrant demes are the same for a propagule pool model
+				}
+			}
+
 			for(j=0; j<population[i].nIndividus; j++){	// loop over the individuals to put into extincted demes
 				demeTMP = emigrantDemes[j];
 
@@ -899,7 +906,7 @@ void genePop(Deme* population, const int nDemes, const int nNtrlLoci, const int 
 
 }
 
-void statisticsPopulations(Deme* population, const int nDemes, const int maxIndPerDem, const int nQuantiLoci, const int fecundity, const double migration, const double extinction, const int recolonization, const int sexualSystem, const double sexAvantage, const int seed, int time, const double selfingRate){
+void statisticsPopulations(Deme* population, const int nDemes, const int maxIndPerDem, const int nQuantiLoci, const int fecundity, const double migration, const double extinction, const int recolonization, const int sexualSystem, const double sexAvantage, const int seed, int time, const double selfingRate, const int colonizationModel){
 	// function that calculates the mean female allocation, its standard deviation and the percentage of cosexuals in the metapopulation
 	int i = 0;
 	int j = 0;
@@ -921,7 +928,7 @@ void statisticsPopulations(Deme* population, const int nDemes, const int maxIndP
 	fichierSortie = fopen(nomFichierSortie, "r");
 	if(fichierSortie == NULL){
 		fichierSortie = fopen(nomFichierSortie, "a");
-		fprintf(fichierSortie, "nDemes\tnIndMaxPerDeme\tNtot\tnQuantiLoci\tselfingRate\tfecundity\tmigRate\textRate\trecolonization\tatGeneration\tsexSystem\tsexAvantage\tseed\tmeanFemAlloc\tsdFemAlloc\tmeanFemAllocCosexual\tsdFemAllocCosexual\tcosexualProportion\texpFST_Nmax\texpFST_Nobs\n");
+		fprintf(fichierSortie, "nDemes\tnIndMaxPerDeme\tNtot\tnQuantiLoci\tselfingRate\tfecundity\tmigRate\textRate\tcolonizationModel\trecolonization\tatGeneration\tsexSystem\tsexAvantage\tseed\tmeanFemAlloc\tsdFemAlloc\tmeanFemAllocCosexual\tsdFemAllocCosexual\tcosexualProportion\texpFST_Nmax\texpFST_Nobs\n");
 		fclose(fichierSortie);
 	}else{
 		fclose(fichierSortie);
@@ -970,15 +977,26 @@ void statisticsPopulations(Deme* population, const int nDemes, const int maxIndP
 	
 		free(allocFemale);
 		free(allocFemaleCosexual);
-	
-		fprintf(fichierSortie, "%d\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\n", nDemes, maxIndPerDem, nIndividusTotal, nQuantiLoci, selfingRate, fecundity, migration, extinction, recolonization, time, sexualSystem, sexAvantage, seed, meanAllocFemale, sdAllocFemale, meanAllocFemaleCosexual, sdAllocFemaleCosexual, cosexualProportion, fstValue, fstValueDensity);
+		
+		char colonizationModelTMP[50];
+		
+		if(colonizationModel == 0){
+			sprintf(colonizationModelTMP, "migrationPool");
+//			colonizationModelTMP = "migrationPool";
+		}
+		if(colonizationModel == 1){
+			sprintf(colonizationModelTMP, "propagulePool");
+//			colonizationModelTMP = "propagulePool";
+		}
+
+		fprintf(fichierSortie, "%d\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%s\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\n", nDemes, maxIndPerDem, nIndividusTotal, nQuantiLoci, selfingRate, fecundity, migration, extinction, colonizationModelTMP, recolonization, time, sexualSystem, sexAvantage, seed, meanAllocFemale, sdAllocFemale, meanAllocFemaleCosexual, sdAllocFemaleCosexual, cosexualProportion, fstValue, fstValueDensity);
 		fclose(fichierSortie);
 	}
 }
 
 void checkCommandLine(int argc){
-	if(argc != 16){
-		printf("\n%sThe number of provided arguments is not correct.%s\nYou provided %s%d%s argument while %s15%s are expected:\n\t\
+	if(argc != 17){
+		printf("\n%sThe number of provided arguments is not correct.%s\nYou provided %s%d%s argument while %s16%s are expected:\n\t\
 		%s1.%s  Number of demes (>0)\n\t\
 		%s2.%s  Max number of individuals per deme (>0)\n\t\
 		%s3.%s  Number of generations (>0)\n\n\t\
@@ -990,12 +1008,13 @@ void checkCommandLine(int argc){
 		%s9.%s  Immigration rate (Poisson distributed; >=0)\n\t\
 		%s10.%s Extinction rate (Binomialy distributed; in [0-1])\n\t\
 		%s11.%s Number of individuals recolonizing an extincted deme (>0)\n\n\t\
-		%s12.%s sexualSystem is equal to 0 if autosomal, equal to 1 if XY and equal to 2 if ZW\n\t\
-		%s13.%s Sexual effects of heterogametic sex (if equal to 1.5 in XY system, males have a 50 percent advantage to sire available ovules). Required but neglected if sexualSystem == 0\n\t\
-		%s14.%s Selfing rate of hermaphrodites, fixed over time (in [0-1])\n\t\
-		%s15.%s Seed for the random generator (>0)\n\n\
-		%s\tExample:%s ./quantiSex 100 100 100 10 0.0001 1 0.00001 100 1 0.1 1 0 2 0.1 123\n\n\
-		version: %s\n\n\t\tdependencies: \t%s\n\n", KRED, STOP, KRED, argc-1, STOP, KRED, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KRED, STOP, VERSION, DEPENDENCY);
+		%s12.%s Colonization model, 'migration pool' (=0) or 'propagule pool' (=1) models\n\n\t\
+		%s13.%s sexualSystem is equal to 0 if autosomal, equal to 1 if XY and equal to 2 if ZW\n\t\
+		%s14.%s Sexual effects of heterogametic sex (if equal to 1.5 in XY system, males have a 50 percent advantage to sire available ovules). Required but neglected if sexualSystem == 0\n\t\
+		%s15.%s Selfing rate of hermaphrodites, fixed over time (in [0-1])\n\t\
+		%s16.%s Seed for the random generator (>0)\n\n\
+		%s\tExample:%s ./quantiSex 100 100 100 10 0.0001 1 0.00001 100 1 0.1 1 1 0 2 0.1 123\n\n\
+		version: %s\n\n\t\tdependencies: \t%s\n\n", KRED, STOP, KRED, argc-1, STOP, KRED, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KRED, STOP, VERSION, DEPENDENCY);
 
 		exit(0);
 	}
