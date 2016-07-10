@@ -4,6 +4,7 @@
 // estimate the expected Fst value in a metapoluation following:
 // Effective size in simple metapopulation models ; F Rousset ; Heredity ; 2003
 double fst(const int nDemes, const int maxIndPerDem, const double extinction, const int recolonization, const double migration);
+void checkCommandLine(int argc);
 
 int main(int argc, char *argv[]){
 	const int nDemes = atoi(argv[1]);
@@ -33,5 +34,17 @@ double fst(const int nDemes, const int maxIndPerDem, const double extinction, co
 	res = (qr - 1/(2.0 * maxIndPerDem)) * (2 * maxIndPerDem)/(2.0 * maxIndPerDem -1);
 
 	return(res);
+}
+
+
+void checkCommandLine(int argc){
+	if(argc != 6){
+		printf("number of demes\n");
+		printf("number of diploid individuals in demes\n");
+		printf("extinction rate\n");
+		printf("number of colonizer individuals after extinction\n");
+		printf("number of migrants\n");
+		exit(0);
+	}
 }
 

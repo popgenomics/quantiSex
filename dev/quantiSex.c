@@ -42,7 +42,8 @@ void writeNindividuals(const Deme* population, const int nDemes, const double ex
 void genePop(Deme* population, const int nDemes, const int nNtrlLoci, const int seed, int time);
 void checkCommandLine(int argc);
 void statisticsPopulations(Deme* population, const int nDemes, const int maxIndPerDem, const int nQuantiLoci, const int fecundity, const double migration, const double extinction, const int recolonization, const int sexualSystem, const double sexAvantage, const int seed, int time, const double selfingRate, const int colonizationModel);
-double fst(const int maxIndPerDem, const double extinction, const int recolonization, const double migration);
+double fstMullon(const int maxIndPerDem, const double extinction, const int recolonization, const double migration);
+double fstRousset(const int maxIndPerDem, const double extinction, const int recolonization, const double migration, const int colonizationModel);
 
 int main(int argc, char *argv[]){
 
@@ -913,6 +914,7 @@ void statisticsPopulations(Deme* population, const int nDemes, const int maxIndP
 	int cnt = 0;
 	int cnt2 = 0;
 	double fstValue = 0.0;
+	double fstRoussetValue = 0.0;
 	double fstValueDensity = 0.0;
 	double meanAllocFemale = 0.0;
 	double sdAllocFemale = 0.0;
@@ -928,7 +930,7 @@ void statisticsPopulations(Deme* population, const int nDemes, const int maxIndP
 	fichierSortie = fopen(nomFichierSortie, "r");
 	if(fichierSortie == NULL){
 		fichierSortie = fopen(nomFichierSortie, "a");
-		fprintf(fichierSortie, "nDemes\tnIndMaxPerDeme\tNtot\tnQuantiLoci\tselfingRate\tfecundity\tmigRate\textRate\tcolonizationModel\trecolonization\tatGeneration\tsexSystem\tsexAvantage\tseed\tmeanFemAlloc\tsdFemAlloc\tmeanFemAllocCosexual\tsdFemAllocCosexual\tcosexualProportion\texpFST_Nmax\texpFST_Nobs\n");
+		fprintf(fichierSortie, "nDemes\tnIndMaxPerDeme\tNtot\tnQuantiLoci\tselfingRate\tfecundity\tmigRate\textRate\tcolonizationModel\trecolonization\tatGeneration\tsexSystem\tsexAvantage\tseed\tmeanFemAlloc\tsdFemAlloc\tmeanFemAllocCosexual\tsdFemAllocCosexual\tcosexualProportion\texpFST_Nmax\texpFST_Nobs\texpFST_Rousset_Nmax\n");
 		fclose(fichierSortie);
 	}else{
 		fclose(fichierSortie);
@@ -972,9 +974,10 @@ void statisticsPopulations(Deme* population, const int nDemes, const int maxIndP
 		
 		cosexualProportion = cosexualProportion / nIndividusTotal;
 	
-		fstValue = fst(maxIndPerDem, extinction, recolonization, migration); // expected fst assuming that all demes are full
-		fstValueDensity = fst((int) nIndividusTotal/(1.0*nDemes), extinction, recolonization, migration); // expected fst, using the the average number of individuals in demes (for cases with high extinction, low fecundity)
-	
+		fstValue = fstMullon(maxIndPerDem, extinction, recolonization, migration); // expected fst assuming that all demes are full
+		fstValueDensity = fstMullon((int) nIndividusTotal/(1.0*nDemes), extinction, recolonization, migration); // expected fst, using the the average number of individuals in demes (for cases with high extinction, low fecundity)
+		fstRoussetValue = fstRousset(maxIndPerDem, extinction, recolonization, migration, colonizationModel);
+
 		free(allocFemale);
 		free(allocFemaleCosexual);
 		
@@ -989,7 +992,7 @@ void statisticsPopulations(Deme* population, const int nDemes, const int maxIndP
 //			colonizationModelTMP = "propagulePool";
 		}
 
-		fprintf(fichierSortie, "%d\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%s\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\n", nDemes, maxIndPerDem, nIndividusTotal, nQuantiLoci, selfingRate, fecundity, migration, extinction, colonizationModelTMP, recolonization, time, sexualSystem, sexAvantage, seed, meanAllocFemale, sdAllocFemale, meanAllocFemaleCosexual, sdAllocFemaleCosexual, cosexualProportion, fstValue, fstValueDensity);
+		fprintf(fichierSortie, "%d\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%s\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\n", nDemes, maxIndPerDem, nIndividusTotal, nQuantiLoci, selfingRate, fecundity, migration, extinction, colonizationModelTMP, recolonization, time, sexualSystem, sexAvantage, seed, meanAllocFemale, sdAllocFemale, meanAllocFemaleCosexual, sdAllocFemaleCosexual, cosexualProportion, fstValue, fstValueDensity, fstRoussetValue);
 		fclose(fichierSortie);
 	}
 }
@@ -1020,7 +1023,7 @@ void checkCommandLine(int argc){
 	}
 }
 
-double fst(const int maxIndPerDem, const double extinction, const int recolonization, const double migration){
+double fstMullon(const int maxIndPerDem, const double extinction, const int recolonization, const double migration){
 	double res = 0.0;
 	double numQ = 0.0;
 	double denomQ = 0.0;
@@ -1036,6 +1039,29 @@ double fst(const int maxIndPerDem, const double extinction, const int recoloniza
 
 	return(res);
 }
+
+double fstRousset(const int maxIndPerDem, const double extinction, const int recolonization, const double migration, const int colonizationModel){
+	double res = 0.0;
+	double numQ = 0.0;
+	double denomQ = 0.0;
+	double phi = 0.0;
+	double qr = 0.0;
+	double migrationProportion = migration / maxIndPerDem;
+	
+	if(colonizationModel == 1){
+		phi = pow((1 - migrationProportion), 2);
+	}
+
+	numQ = 1/(2.0 * maxIndPerDem) + extinction/(2.0 * recolonization) - extinction/(2.0 * recolonization * 2.0 * maxIndPerDem);
+	denomQ = 1 - (1 - 1/(2.0 * maxIndPerDem)) * (pow((1 - migrationProportion), 2) * (1 - extinction) + extinction * phi * (1 - 1/(2.0 * recolonization)) * 1/(2.0 * recolonization -1));
+
+	qr = numQ/denomQ;
+
+	res = (qr - 1/(2.0 * maxIndPerDem)) * (2 * maxIndPerDem)/(2.0 * maxIndPerDem -1);
+
+	return(res);
+}
+
 
 /*# diveRsityR
 #!/usr/bin/env Rscript
