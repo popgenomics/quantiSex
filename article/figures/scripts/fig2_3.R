@@ -101,9 +101,9 @@ dev.off()
 ###################################
 # selfing and population genetics #
 ###################################
-# figure S3
+# figure S5
 
-pdf("figure_S3.pdf", width = 13, height = 20, bg="white")
+pdf("figure_S5.pdf", width = 13, height = 20, bg="white")
 par(mfrow = c(5, 4), las = 1)
 for(i in c(0, 0.1, 0.5, 0.9, 1)){
 	recolonization = 1 # number of recolonizators
