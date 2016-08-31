@@ -54,20 +54,20 @@ k10 = y[which(y$recolonization == recolonization), ]
 k10 = triVariableTable(k10$migRate, k10$extRate, k10$meanFemAllocCosexual)
 
 setwd("/home/croux/Documents/papier_quantiSex/quantiSex/article/figures/figures_tmp")
-plot3var(t(k1), zlim=c(0.5, 1), zlab="Proportion female allocation", xlab="migration rate", ylab="extinction rate", couleurs=c("white", "yellow", "red", "black"), main="k=1")
+plot3var(t(k1), zlim=c(0.5, 1), zlab="Proportion female allocation", xlab="mean number of immigrants", ylab="extinction rate", couleurs=c("white", "yellow", "red", "black"), main="k=1")
 dev.print(pdf, "figure_1A.pdf", bg="white")
 dev.off()
 
-plot3var(t(k2), zlim=c(0.5, 1), zlab="Proportion female allocation", xlab="migration rate", ylab="extinction rate", couleurs=c("white", "yellow", "red", "black"), main="k=2")
+plot3var(t(k2), zlim=c(0.5, 1), zlab="Proportion female allocation", xlab="mean number of immigrants", ylab="extinction rate", couleurs=c("white", "yellow", "red", "black"), main="k=2")
 dev.print(pdf, "figure_1B.pdf", bg="white")
 dev.off()
 
 setwd("/home/croux/Documents/papier_quantiSex/quantiSex/article/figures/supp_figures")
-plot3var(t(k3), zlim=c(0.5, 1), zlab="Proportion female allocation", xlab="migration rate", ylab="extinction rate", couleurs=c("white", "yellow", "red", "black"), main="k=3")
+plot3var(t(k3), zlim=c(0.5, 1), zlab="Proportion female allocation", xlab="mean number of immigrants", ylab="extinction rate", couleurs=c("white", "yellow", "red", "black"), main="k=3")
 dev.print(pdf, "figure_S5.pdf", bg="white")
 dev.off()
 
-plot3var(t(k10), zlim=c(0.5, 1), zlab="Proportion female allocation", xlab="migration rate", ylab="extinction rate", couleurs=c("white", "yellow", "red", "black"), main="k=10")
+plot3var(t(k10), zlim=c(0.5, 1), zlab="Proportion female allocation", xlab="mean number of immigrants", ylab="extinction rate", couleurs=c("white", "yellow", "red", "black"), main="k=10")
 dev.print(pdf, "figure_S6.pdf", bg="white")
 dev.off()
 

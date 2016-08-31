@@ -18,7 +18,7 @@ y = x[which(x$recolonization==recolonization & x$fecundity==fecundity & x$selfin
 obsFst = triVariableTable(y$migRate, y$extRate, y$Fst)
 expFst = triVariableTable(y$migRate, y$extRate, y$expFST_Nobs)
 
-compare_matrix(t(expFst), t(obsFst), xlab="migration rate", ylab="extinction rate", zlab=expression(F["ST"]), couleurs=c("white", "yellow", "red", "black"), watermark = F, zlim=c(0, 1), zlimResiduals=c(-1,1))
+compare_matrix(t(expFst), t(obsFst), xlab="mean number of immigrants", ylab="extinction rate", zlab=expression(F["ST"]), couleurs=c("white", "yellow", "red", "black"), watermark = F, zlim=c(0, 1), zlimResiduals=c(-1,1))
 
 setwd("/home/croux/Documents/papier_quantiSex/quantiSex/article/figures/supp_figures")
 dev.print(pdf, "figure_S1_A.pdf", bg="white")
@@ -33,7 +33,7 @@ y = x[which(x$recolonization==recolonization & x$fecundity==fecundity & x$selfin
 obsFst = triVariableTable(y$migRate, y$extRate, y$Fst)
 expFst = triVariableTable(y$migRate, y$extRate, y$expFST_Nobs)
 
-# compare_matrix(t(expFst), t(obsFst), xlab="migration rate", ylab="extinction rate", zlab=expression(F["ST"]), couleurs=c("white", "yellow", "red", "black"), watermark = F, zlim=c(0, 1), zlimResiduals=c(-1,1))
+# compare_matrix(t(expFst), t(obsFst), xlab="mean number of immigrants", ylab="extinction rate", zlab=expression(F["ST"]), couleurs=c("white", "yellow", "red", "black"), watermark = F, zlim=c(0, 1), zlimResiduals=c(-1,1))
 
 
 # expectations when k == 3
@@ -45,7 +45,7 @@ y = x[which(x$recolonization==recolonization & x$fecundity==fecundity & x$selfin
 obsFst = triVariableTable(y$migRate, y$extRate, y$Fst)
 expFst = triVariableTable(y$migRate, y$extRate, y$expFST_Nobs)
 
-# compare_matrix(t(expFst), t(obsFst), xlab="migration rate", ylab="extinction rate", zlab=expression(F["ST"]), couleurs=c("white", "yellow", "red", "black"), watermark = F, zlim=c(0, 1), zlimResiduals=c(-1,1))
+# compare_matrix(t(expFst), t(obsFst), xlab="mean number of immigrants", ylab="extinction rate", zlab=expression(F["ST"]), couleurs=c("white", "yellow", "red", "black"), watermark = F, zlim=c(0, 1), zlimResiduals=c(-1,1))
 
 
 # figure S1_B: expectations when k == 10
@@ -57,7 +57,7 @@ y = x[which(x$recolonization==recolonization & x$fecundity==fecundity & x$selfin
 obsFst = triVariableTable(y$migRate, y$extRate, y$Fst)
 expFst = triVariableTable(y$migRate, y$extRate, y$expFST_Nobs)
 
-compare_matrix(t(expFst), t(obsFst), xlab="migration rate", ylab="extinction rate", zlab=expression(F["ST"]), couleurs=c("white", "yellow", "red", "black"), watermark = F, zlim=c(0, 1), zlimResiduals=c(-1,1))
+compare_matrix(t(expFst), t(obsFst), xlab="mean number of immigrants", ylab="extinction rate", zlab=expression(F["ST"]), couleurs=c("white", "yellow", "red", "black"), watermark = F, zlim=c(0, 1), zlimResiduals=c(-1,1))
 dev.print(pdf, "figure_S1_B.pdf", bg="white")
 dev.off()
 

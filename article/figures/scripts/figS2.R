@@ -26,7 +26,7 @@ y = x[which(x$recolonization == recolonization), ]
 par(las=1)
 
 y_tmp = y[which(y$extRate == 0), ]
-plot(y_tmp$migRate, y_tmp$meanFemAllocCosexual, ylim = c(0.45, 1), ylab = "Proportion female allocation", xlab = "migration rate", pch = 21, bg = grey(1), cex = 1.5, cex.lab = 1.5, cex.axis = 1.5, main = "k = 1", lwd = 0.5)
+plot(y_tmp$migRate, y_tmp$meanFemAllocCosexual, ylim = c(0.45, 1), ylab = "Proportion female allocation", xlab = "mean number of immigrants", pch = 21, bg = grey(1), cex = 1.5, cex.lab = 1.5, cex.axis = 1.5, main = "k = 1", lwd = 0.5)
 
 y_tmp = y[which(y$extRate == 0.1), ]
 points(y_tmp$migRate, y_tmp$meanFemAllocCosexual, pch = 21, bg = grey(0.5), cex = 1.5, lwd = 0.5)
@@ -43,7 +43,7 @@ y = x[which(x$recolonization == recolonization), ]
 par(las=1)
 
 y_tmp = y[which(y$extRate == 0), ]
-plot(y_tmp$migRate, y_tmp$meanFemAllocCosexual, ylim = c(0.45, 1), ylab = "Proportion female allocation", xlab = "migration rate", pch = 21, bg = grey(1), cex = 1.5, cex.lab = 1.5, cex.axis = 1.5, main = "k = 2", lwd = 0.5)
+plot(y_tmp$migRate, y_tmp$meanFemAllocCosexual, ylim = c(0.45, 1), ylab = "Proportion female allocation", xlab = "mean number of immigrants", pch = 21, bg = grey(1), cex = 1.5, cex.lab = 1.5, cex.axis = 1.5, main = "k = 2", lwd = 0.5)
 
 y_tmp = y[which(y$extRate == 0.1), ]
 points(y_tmp$migRate, y_tmp$meanFemAllocCosexual, pch = 21, bg = grey(0.5), cex = 1.5, lwd = 0.5)
@@ -60,7 +60,7 @@ y = x[which(x$recolonization == recolonization), ]
 par(las=1)
 
 y_tmp = y[which(y$extRate == 0), ]
-plot(y_tmp$migRate, y_tmp$meanFemAllocCosexual, ylim = c(0.45, 1), ylab = "Proportion female allocation", xlab = "migration rate", pch = 21, bg = grey(1), cex = 1.5, cex.lab = 1.5, cex.axis = 1.5, main = "k = 3", lwd = 0.5)
+plot(y_tmp$migRate, y_tmp$meanFemAllocCosexual, ylim = c(0.45, 1), ylab = "Proportion female allocation", xlab = "mean number of immigrants", pch = 21, bg = grey(1), cex = 1.5, cex.lab = 1.5, cex.axis = 1.5, main = "k = 3", lwd = 0.5)
 
 y_tmp = y[which(y$extRate == 0.1), ]
 points(y_tmp$migRate, y_tmp$meanFemAllocCosexual, pch = 21, bg = grey(0.5), cex = 1.5, lwd = 0.5)
@@ -77,7 +77,7 @@ y = x[which(x$recolonization == recolonization), ]
 par(las=1)
 
 y_tmp = y[which(y$extRate == 0), ]
-plot(y_tmp$migRate, y_tmp$meanFemAllocCosexual, ylim = c(0.45, 1), ylab = "Proportion female allocation", xlab = "migration rate", pch = 21, bg = grey(1), cex = 1.5, cex.lab = 1.5, cex.axis = 1.5, main = "k = 10", lwd = 0.5)
+plot(y_tmp$migRate, y_tmp$meanFemAllocCosexual, ylim = c(0.45, 1), ylab = "Proportion female allocation", xlab = "mean number of immigrants", pch = 21, bg = grey(1), cex = 1.5, cex.lab = 1.5, cex.axis = 1.5, main = "k = 10", lwd = 0.5)
 
 y_tmp = y[which(y$extRate == 0.1), ]
 points(y_tmp$migRate, y_tmp$meanFemAllocCosexual, pch = 21, bg = grey(0.5), cex = 1.5, lwd = 0.5)
