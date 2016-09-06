@@ -820,7 +820,8 @@ void genePop(Deme* population, const int nDemes, const int nNtrlLoci, const int 
 
 //	sprintf(commandLineOne, "Genepop settingsFile=%s Mode=Batch >/dev/null", nameOfSettingFile); // external call of genepop (Rousset)
 //	sprintf(commandLineTwo, "tail -n%d %s.FST | grep 'Locus'>tmp_%d.txt; tail -n%d %s.FST | grep 'All' >>tmp_%d.txt; mv tmp_%d.txt %s.FST", nNtrlLoci + 5, nameOfGenePopFile, seed, nNtrlLoci + 5, nameOfGenePopFile, seed, seed, nameOfGenePopFile); // external formating of genepop's output.
-	sprintf(commandLineThree, "rm -rf cmdline.txt fichier.in %s %s", nameOfGenePopFile, nameOfSettingFile);
+// saved CR 2/09/2016	sprintf(commandLineThree, "rm -rf cmdline.txt fichier.in %s %s", nameOfGenePopFile, nameOfSettingFile);
+	sprintf(commandLineThree, "rm -rf cmdline.txt fichier.in %s ", nameOfSettingFile);
 
 	sprintf(commandLineDiveRsity, "diveRsity.R input=%s output=%s", nameOfGenePopFile, nameOfROutputFile);
 
