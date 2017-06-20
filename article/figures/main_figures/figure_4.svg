@@ -16,7 +16,7 @@
    width="448.75"
    height="668.75"
    viewBox="0 0 448.75 668.75"
-   sodipodi:docname="figure_3.svg"><metadata
+   sodipodi:docname="figure_4b.svg"><metadata
      id="metadata8"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
@@ -69,20 +69,19 @@
      id="namedview4"
      showgrid="false"
      inkscape:zoom="0.70579439"
-     inkscape:cx="489.57361"
-     inkscape:cy="306.94436"
+     inkscape:cx="140.05249"
+     inkscape:cy="327.18619"
      inkscape:window-x="65"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g538" /><g
+     inkscape:current-layer="g536" /><g
      id="g10"
      inkscape:groupmode="layer"
-     inkscape:label="figure_3"
+     inkscape:label="figure_4b"
      transform="matrix(1.25,0,0,-1.25,0,668.75)"><g
-       id="g12"
-       transform="translate(20.8,0)" /><g
+       id="g12" /><g
        id="g14"
-       transform="translate(20.8,-14.4)"><g
+       transform="translate(16,-6.4)"><g
          id="g16"
          clip-path="url(#clipPath18)"><text
            transform="matrix(1,0,0,-1,87.91,418.47)"
@@ -317,7 +316,7 @@
              id="tspan152">●</tspan></text>
 </g></g><g
        id="g154"
-       transform="translate(20.8,-14.4)"><path
+       transform="translate(16,-6.4)"><path
          d="m 67.32,336.26 242.94,0"
          style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
          id="path156"
@@ -475,7 +474,7 @@
          id="path232"
          inkscape:connector-curvature="0" /></g><g
        id="g234"
-       transform="translate(20.8,-14.4)"><g
+       transform="translate(16,-6.4)"><g
          id="g236"
          clip-path="url(#clipPath238)"><text
            transform="matrix(1,0,0,-1,129.18,509.1)"
@@ -490,9 +489,9 @@
            style="font-variant:normal;font-weight:normal;font-size:14px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
            id="text246"
            x="154.62"
-           y="-289.54004"><tspan
+           y="-287.94003"><tspan
              x="154.62 161.62 169.40401 172.51199 176.40401 179.51199 187.29601 195.08 198.972 203.494 211.278 215.17"
-             y="-289.54004"
+             y="-287.94003"
              sodipodi:role="line"
              id="tspan248">selfing rate</tspan></text>
 <text
@@ -505,7 +504,7 @@
              id="tspan252">proportion female allocation</tspan></text>
 </g></g><g
        id="g254"
-       transform="translate(20.8,-14.4)"><g
+       transform="translate(16,-6.4)"><g
          id="g256"
          clip-path="url(#clipPath258)"><path
            d="m 57.6,411.5 262.38,78.13"
@@ -743,12 +742,11 @@
              y="0"
              id="tspan394">●</tspan></text>
 </g></g><g
-       id="g396"
-       transform="translate(20.8,0)"><g
+       id="g396"><g
          id="g398"
          clip-path="url(#clipPath400)" /></g><g
        id="g404"
-       transform="translate(20.8,-12.8)"><g
+       transform="translate(16,-6.4)"><g
          id="g406"
          clip-path="url(#clipPath408)"><text
            transform="matrix(1,0,0,-1,64.36,214.97)"
@@ -829,7 +827,7 @@
              id="tspan454">●</tspan></text>
 </g></g><g
        id="g456"
-       transform="translate(20.8,-12.8)"><path
+       transform="translate(16,-6.4)"><path
          d="m 67.32,68.4 242.94,0"
          style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
          id="path458"
@@ -981,724 +979,769 @@
          style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
          id="path534"
          inkscape:connector-curvature="0" /></g><g
-       id="g536"
-       transform="translate(20.8,0)"><g
-         id="g538"
-         clip-path="url(#clipPath540)"><text
-           transform="scale(1,-1)"
-           style="font-variant:normal;font-weight:bold;font-size:14px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text544"
-           x="123.34"
-           y="-228.43996"><tspan
-             x="123.34 130.914 138.698 143.36 147.252 155.806 163.59 168.252 172.144 180.698 189.252 193.144 198.59 206.37399 211.036 218.82001 222.71201 230.888 234.78 242.564 246.45599"
-             y="-228.43996"
-             sodipodi:role="line"
-             id="tspan546">extinction rate = 0.3</tspan></text>
+       id="g536"><text
+         id="text544"
+         style="font-variant:normal;font-weight:bold;font-size:14px;font-family:Helvetica;-inkscape-font-specification:Helvetica-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         transform="scale(1,-1)"
+         x="139.34"
+         y="-234.83998"><tspan
+           id="tspan546"
+           sodipodi:role="line"
+           y="-234.83998"
+           x="139.34 146.914 154.698 159.36 163.252 171.806 179.59 184.252 188.144 196.698 205.252 209.144 214.59 222.37399 227.036 234.82001 238.71201 246.888 250.78 258.564 262.45599">extinction rate = 0.3</tspan></text>
 <text
-           transform="scale(1,-1)"
-           style="font-variant:normal;font-weight:normal;font-size:14px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text548"
-           x="101.79"
-           y="-8.8799973"><tspan
-             x="101.79 113.452 121.236 129.02 136.804 140.696 148.34 156.12399 167.786 175.56999 183.354 188.01599 191.90799 199.692 203.584 207.476 210.584 222.246 233.90799 237.01599 244.79999 249.32199 257.10599 264.89001 268.78201"
-             y="-8.8799973"
-             sodipodi:role="line"
-             id="tspan550">mean number of immigrants</tspan></text>
+         id="text548"
+         style="font-variant:normal;font-weight:normal;font-size:14px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         transform="scale(1,-1)"
+         x="117.79"
+         y="-13.68"><tspan
+           id="tspan550"
+           sodipodi:role="line"
+           y="-13.68"
+           x="117.79 129.452 137.23599 145.02 152.804 156.696 164.34 172.12399 183.786 191.56999 199.354 204.01599 207.90799 215.692 219.584 223.476 226.584 238.246 249.90799 253.01599 260.79999 265.32199 273.10599 280.89001 284.78201">mean number of immigrants</tspan></text>
 <text
-           transform="matrix(0,1,1,0,0,0)"
-           style="font-variant:normal;font-weight:normal;font-size:14px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text552"
-           x="47.680012"
-           y="11.52"><tspan
-             x="47.680012 55.464012 60.126007 67.910011 75.694008 83.478012 88.700012 92.59201 95.700005 103.484 111.268 115.16001 118.63201 126.41596 138.07796 145.86195 148.96996 156.75395 160.64597 168.42996 171.53796 174.64597 182.42996 189.42996 197.21396 201.10596 204.21396 211.99796"
-             y="11.52"
-             sodipodi:role="line"
-             id="tspan554">proportion female allocation</tspan></text>
-</g></g><g
+         id="text552"
+         style="font-variant:normal;font-weight:normal;font-size:14px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         transform="matrix(0,1,1,0,0,0)"
+         x="54.080006"
+         y="27.52"><tspan
+           id="tspan554"
+           sodipodi:role="line"
+           y="27.52"
+           x="54.080006 61.864006 66.526009 74.310005 82.094009 89.878006 95.100006 98.992004 102.1 109.884 117.668 121.56001 125.03201 132.81598 144.47798 152.26198 155.36998 163.15398 167.04597 174.82997 177.93797 181.04597 188.82997 195.82997 203.61397 207.50597 210.61397 218.39796">proportion female allocation</tspan></text>
+<text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:32px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="10.201273"
+         y="-504.39618"
+         id="text4284"
+         sodipodi:linespacing="125%"
+         transform="scale(1,-1)"><tspan
+           sodipodi:role="line"
+           id="tspan4286"
+           x="10.201273"
+           y="-504.39618">A</tspan></text>
+<text
+         transform="scale(1,-1)"
+         sodipodi:linespacing="125%"
+         id="text4288"
+         y="-238.79614"
+         x="10.201273"
+         style="font-style:normal;font-weight:normal;font-size:32px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           y="-238.79614"
+           x="10.201273"
+           id="tspan4290"
+           sodipodi:role="line">B</tspan></text>
+</g><g
        id="g556"
-       transform="translate(20.8,-12.8)"><g
+       transform="translate(16,-6.4)"><g
          id="g558"
-         clip-path="url(#clipPath560)"><text
+         clip-path="url(#clipPath560)"><path
+           d="m 57.6,218.87 262.38,0"
+           style="fill:none;stroke:#333333;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path564"
+           inkscape:connector-curvature="0" /><path
+           d="m 57.6,211.64 262.38,0"
+           style="fill:none;stroke:#666666;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path566"
+           inkscape:connector-curvature="0" /><path
+           d="m 57.6,182.7 262.38,0"
+           style="fill:none;stroke:#999999;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path568"
+           inkscape:connector-curvature="0" /><path
+           d="m 57.6,153.76 262.38,0"
+           style="fill:none;stroke:#cccccc;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path570"
+           inkscape:connector-curvature="0" /><path
+           d="m 57.6,146.53 262.38,0"
+           style="fill:none;stroke:#ffffff;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path572"
+           inkscape:connector-curvature="0" /><path
+           d="m 57.6,146.53 262.38,0"
+           style="fill:none;stroke:#000000;stroke-width:0.89999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:2.7, 4.5;stroke-dashoffset:0;stroke-opacity:1"
+           id="path574"
+           inkscape:connector-curvature="0" /><text
            transform="matrix(1,0,0,-1,65.44,134.56)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           id="text564"><tspan
-             x="0"
-             y="0"
-             id="tspan566">●</tspan></text>
-<text
-           transform="matrix(1,0,0,-1,65.44,120.88)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           id="text568"><tspan
-             x="0"
-             y="0"
-             id="tspan570">●</tspan></text>
-<text
-           transform="matrix(1,0,0,-1,65.44,107.2)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           id="text572"><tspan
-             x="0"
-             y="0"
-             id="tspan574">●</tspan></text>
-<text
-           transform="matrix(1,0,0,-1,65.44,93.52)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text576"><tspan
              x="0"
              y="0"
              id="tspan578">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,79.84)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(1,0,0,-1,65.44,120.88)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text580"><tspan
              x="0"
              y="0"
              id="tspan582">●</tspan></text>
 <text
+           transform="matrix(1,0,0,-1,65.44,107.2)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="text584"><tspan
+             x="0"
+             y="0"
+             id="tspan586">●</tspan></text>
+<text
+           transform="matrix(1,0,0,-1,65.44,93.52)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="text588"><tspan
+             x="0"
+             y="0"
+             id="tspan590">●</tspan></text>
+<text
+           transform="matrix(1,0,0,-1,65.44,79.84)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="text592"><tspan
+             x="0"
+             y="0"
+             id="tspan594">●</tspan></text>
+<text
            transform="matrix(1,0,0,-1,79.2,132.85)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text584"><tspan
+           id="text596"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001"
              y="0"
              sodipodi:role="line"
-             id="tspan586">selfing = 1</tspan></text>
+             id="tspan598">selfing = 1</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,119.17)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text588"><tspan
+           id="text600"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001 55.032001 58.368"
              y="0"
              sodipodi:role="line"
-             id="tspan590">selfing = 0.9</tspan></text>
+             id="tspan602">selfing = 0.9</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,105.49)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text592"><tspan
+           id="text604"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001 55.032001 58.368"
              y="0"
              sodipodi:role="line"
-             id="tspan594">selfing = 0.5</tspan></text>
+             id="tspan606">selfing = 0.5</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,91.81)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text596"><tspan
+           id="text608"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001 55.032001 58.368"
              y="0"
              sodipodi:role="line"
-             id="tspan598">selfing = 0.1</tspan></text>
+             id="tspan610">selfing = 0.1</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,78.13)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text600"><tspan
+           id="text612"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001"
              y="0"
              sodipodi:role="line"
-             id="tspan602">selfing = 0</tspan></text>
+             id="tspan614">selfing = 0</tspan></text>
 <text
            transform="matrix(1,0,0,-1,64.36,214.9)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           id="text604"><tspan
-             x="0"
-             y="0"
-             id="tspan606">●</tspan></text>
-<text
-           transform="matrix(1,0,0,-1,307.3,171.68)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           id="text608"><tspan
-             x="0"
-             y="0"
-             id="tspan610">●</tspan></text>
-<text
-           transform="matrix(1,0,0,-1,88.65,201.56)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           id="text612"><tspan
-             x="0"
-             y="0"
-             id="tspan614">●</tspan></text>
-<text
-           transform="matrix(1,0,0,-1,112.95,193.84)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text616"><tspan
              x="0"
              y="0"
              id="tspan618">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,137.24,189.54)"
+           transform="matrix(1,0,0,-1,307.3,171.68)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text620"><tspan
              x="0"
              y="0"
              id="tspan622">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,161.53,183.33)"
+           transform="matrix(1,0,0,-1,88.65,201.56)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text624"><tspan
              x="0"
              y="0"
              id="tspan626">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,185.83,180.02)"
+           transform="matrix(1,0,0,-1,112.95,193.84)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text628"><tspan
              x="0"
              y="0"
              id="tspan630">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,210.12,180.37)"
+           transform="matrix(1,0,0,-1,137.24,189.54)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text632"><tspan
              x="0"
              y="0"
              id="tspan634">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,234.42,174.97)"
+           transform="matrix(1,0,0,-1,161.53,183.33)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text636"><tspan
              x="0"
              y="0"
              id="tspan638">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,258.71,172.04)"
+           transform="matrix(1,0,0,-1,185.83,180.02)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text640"><tspan
              x="0"
              y="0"
              id="tspan642">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,283.01,169.78)"
+           transform="matrix(1,0,0,-1,210.12,180.37)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text644"><tspan
              x="0"
              y="0"
              id="tspan646">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,134.56)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(1,0,0,-1,234.42,174.97)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text648"><tspan
              x="0"
              y="0"
              id="tspan650">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,120.88)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(1,0,0,-1,258.71,172.04)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text652"><tspan
              x="0"
              y="0"
              id="tspan654">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,107.2)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(1,0,0,-1,283.01,169.78)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text656"><tspan
              x="0"
              y="0"
              id="tspan658">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,93.52)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(1,0,0,-1,65.44,134.56)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text660"><tspan
              x="0"
              y="0"
              id="tspan662">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,79.84)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(1,0,0,-1,65.44,120.88)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text664"><tspan
              x="0"
              y="0"
              id="tspan666">●</tspan></text>
 <text
+           transform="matrix(1,0,0,-1,65.44,107.2)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="text668"><tspan
+             x="0"
+             y="0"
+             id="tspan670">●</tspan></text>
+<text
+           transform="matrix(1,0,0,-1,65.44,93.52)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="text672"><tspan
+             x="0"
+             y="0"
+             id="tspan674">●</tspan></text>
+<text
+           transform="matrix(1,0,0,-1,65.44,79.84)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="text676"><tspan
+             x="0"
+             y="0"
+             id="tspan678">●</tspan></text>
+<text
            transform="matrix(1,0,0,-1,79.2,132.85)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text668"><tspan
+           id="text680"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001"
              y="0"
              sodipodi:role="line"
-             id="tspan670">selfing = 1</tspan></text>
+             id="tspan682">selfing = 1</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,119.17)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text672"><tspan
+           id="text684"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001 55.032001 58.368"
              y="0"
              sodipodi:role="line"
-             id="tspan674">selfing = 0.9</tspan></text>
+             id="tspan686">selfing = 0.9</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,105.49)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text676"><tspan
+           id="text688"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001 55.032001 58.368"
              y="0"
              sodipodi:role="line"
-             id="tspan678">selfing = 0.5</tspan></text>
+             id="tspan690">selfing = 0.5</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,91.81)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text680"><tspan
+           id="text692"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001 55.032001 58.368"
              y="0"
              sodipodi:role="line"
-             id="tspan682">selfing = 0.1</tspan></text>
+             id="tspan694">selfing = 0.1</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,78.13)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text684"><tspan
+           id="text696"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001"
              y="0"
              sodipodi:role="line"
-             id="tspan686">selfing = 0</tspan></text>
+             id="tspan698">selfing = 0</tspan></text>
 <text
            transform="matrix(1,0,0,-1,64.36,215.42)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           id="text688"><tspan
-             x="0"
-             y="0"
-             id="tspan690">●</tspan></text>
-<text
-           transform="matrix(1,0,0,-1,307.3,190.39)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           id="text692"><tspan
-             x="0"
-             y="0"
-             id="tspan694">●</tspan></text>
-<text
-           transform="matrix(1,0,0,-1,88.65,207.84)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           id="text696"><tspan
-             x="0"
-             y="0"
-             id="tspan698">●</tspan></text>
-<text
-           transform="matrix(1,0,0,-1,112.95,204.57)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text700"><tspan
              x="0"
              y="0"
              id="tspan702">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,137.24,201.29)"
+           transform="matrix(1,0,0,-1,307.3,190.39)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text704"><tspan
              x="0"
              y="0"
              id="tspan706">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,161.53,199.54)"
+           transform="matrix(1,0,0,-1,88.65,207.84)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text708"><tspan
              x="0"
              y="0"
              id="tspan710">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,185.83,195.87)"
+           transform="matrix(1,0,0,-1,112.95,204.57)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text712"><tspan
              x="0"
              y="0"
              id="tspan714">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,210.12,193.19)"
+           transform="matrix(1,0,0,-1,137.24,201.29)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text716"><tspan
              x="0"
              y="0"
              id="tspan718">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,234.42,193.13)"
+           transform="matrix(1,0,0,-1,161.53,199.54)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text720"><tspan
              x="0"
              y="0"
              id="tspan722">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,258.71,192.2)"
+           transform="matrix(1,0,0,-1,185.83,195.87)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text724"><tspan
              x="0"
              y="0"
              id="tspan726">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,283.01,192.32)"
+           transform="matrix(1,0,0,-1,210.12,193.19)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text728"><tspan
              x="0"
              y="0"
              id="tspan730">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,134.56)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(1,0,0,-1,234.42,193.13)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text732"><tspan
              x="0"
              y="0"
              id="tspan734">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,120.88)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(1,0,0,-1,258.71,192.2)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text736"><tspan
              x="0"
              y="0"
              id="tspan738">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,107.2)"
+           transform="matrix(1,0,0,-1,283.01,192.32)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text740"><tspan
              x="0"
              y="0"
              id="tspan742">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,93.52)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(1,0,0,-1,65.44,134.56)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text744"><tspan
              x="0"
              y="0"
              id="tspan746">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,79.84)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(1,0,0,-1,65.44,120.88)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text748"><tspan
              x="0"
              y="0"
              id="tspan750">●</tspan></text>
 <text
+           transform="matrix(1,0,0,-1,65.44,107.2)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="text752"><tspan
+             x="0"
+             y="0"
+             id="tspan754">●</tspan></text>
+<text
+           transform="matrix(1,0,0,-1,65.44,93.52)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="text756"><tspan
+             x="0"
+             y="0"
+             id="tspan758">●</tspan></text>
+<text
+           transform="matrix(1,0,0,-1,65.44,79.84)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="text760"><tspan
+             x="0"
+             y="0"
+             id="tspan762">●</tspan></text>
+<text
            transform="matrix(1,0,0,-1,79.2,132.85)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text752"><tspan
+           id="text764"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001"
              y="0"
              sodipodi:role="line"
-             id="tspan754">selfing = 1</tspan></text>
+             id="tspan766">selfing = 1</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,119.17)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text756"><tspan
+           id="text768"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001 55.032001 58.368"
              y="0"
              sodipodi:role="line"
-             id="tspan758">selfing = 0.9</tspan></text>
+             id="tspan770">selfing = 0.9</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,105.49)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text760"><tspan
+           id="text772"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001 55.032001 58.368"
              y="0"
              sodipodi:role="line"
-             id="tspan762">selfing = 0.5</tspan></text>
+             id="tspan774">selfing = 0.5</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,91.81)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text764"><tspan
+           id="text776"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001 55.032001 58.368"
              y="0"
              sodipodi:role="line"
-             id="tspan766">selfing = 0.1</tspan></text>
+             id="tspan778">selfing = 0.1</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,78.13)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text768"><tspan
+           id="text780"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001"
              y="0"
              sodipodi:role="line"
-             id="tspan770">selfing = 0</tspan></text>
+             id="tspan782">selfing = 0</tspan></text>
 <text
            transform="matrix(1,0,0,-1,64.36,215.99)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           id="text772"><tspan
-             x="0"
-             y="0"
-             id="tspan774">●</tspan></text>
-<text
-           transform="matrix(1,0,0,-1,307.3,211.13)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           id="text776"><tspan
-             x="0"
-             y="0"
-             id="tspan778">●</tspan></text>
-<text
-           transform="matrix(1,0,0,-1,88.65,212.94)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           id="text780"><tspan
-             x="0"
-             y="0"
-             id="tspan782">●</tspan></text>
-<text
-           transform="matrix(1,0,0,-1,112.95,213.32)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text784"><tspan
              x="0"
              y="0"
              id="tspan786">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,137.24,213.13)"
+           transform="matrix(1,0,0,-1,307.3,211.13)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text788"><tspan
              x="0"
              y="0"
              id="tspan790">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,161.53,212.32)"
+           transform="matrix(1,0,0,-1,88.65,212.94)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text792"><tspan
              x="0"
              y="0"
              id="tspan794">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,185.83,211.72)"
+           transform="matrix(1,0,0,-1,112.95,213.32)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text796"><tspan
              x="0"
              y="0"
              id="tspan798">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,210.12,212.18)"
+           transform="matrix(1,0,0,-1,137.24,213.13)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text800"><tspan
              x="0"
              y="0"
              id="tspan802">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,234.42,211.22)"
+           transform="matrix(1,0,0,-1,161.53,212.32)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text804"><tspan
              x="0"
              y="0"
              id="tspan806">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,258.71,211.91)"
+           transform="matrix(1,0,0,-1,185.83,211.72)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text808"><tspan
              x="0"
              y="0"
              id="tspan810">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,283.01,211.62)"
+           transform="matrix(1,0,0,-1,210.12,212.18)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text812"><tspan
              x="0"
              y="0"
              id="tspan814">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,134.56)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(1,0,0,-1,234.42,211.22)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text816"><tspan
              x="0"
              y="0"
              id="tspan818">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,120.88)"
+           transform="matrix(1,0,0,-1,258.71,211.91)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text820"><tspan
              x="0"
              y="0"
              id="tspan822">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,107.2)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(1,0,0,-1,283.01,211.62)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text824"><tspan
              x="0"
              y="0"
              id="tspan826">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,93.52)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(1,0,0,-1,65.44,134.56)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text828"><tspan
              x="0"
              y="0"
              id="tspan830">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,79.84)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(1,0,0,-1,65.44,120.88)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text832"><tspan
              x="0"
              y="0"
              id="tspan834">●</tspan></text>
 <text
+           transform="matrix(1,0,0,-1,65.44,107.2)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="text836"><tspan
+             x="0"
+             y="0"
+             id="tspan838">●</tspan></text>
+<text
+           transform="matrix(1,0,0,-1,65.44,93.52)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="text840"><tspan
+             x="0"
+             y="0"
+             id="tspan842">●</tspan></text>
+<text
+           transform="matrix(1,0,0,-1,65.44,79.84)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="text844"><tspan
+             x="0"
+             y="0"
+             id="tspan846">●</tspan></text>
+<text
            transform="matrix(1,0,0,-1,79.2,132.85)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text836"><tspan
+           id="text848"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001"
              y="0"
              sodipodi:role="line"
-             id="tspan838">selfing = 1</tspan></text>
+             id="tspan850">selfing = 1</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,119.17)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text840"><tspan
+           id="text852"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001 55.032001 58.368"
              y="0"
              sodipodi:role="line"
-             id="tspan842">selfing = 0.9</tspan></text>
+             id="tspan854">selfing = 0.9</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,105.49)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text844"><tspan
+           id="text856"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001 55.032001 58.368"
              y="0"
              sodipodi:role="line"
-             id="tspan846">selfing = 0.5</tspan></text>
+             id="tspan858">selfing = 0.5</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,91.81)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text848"><tspan
+           id="text860"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001 55.032001 58.368"
              y="0"
              sodipodi:role="line"
-             id="tspan850">selfing = 0.1</tspan></text>
+             id="tspan862">selfing = 0.1</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,78.13)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text852"><tspan
+           id="text864"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001"
              y="0"
              sodipodi:role="line"
-             id="tspan854">selfing = 0</tspan></text>
+             id="tspan866">selfing = 0</tspan></text>
 <text
            transform="matrix(1,0,0,-1,64.36,215.23)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           id="text856"><tspan
-             x="0"
-             y="0"
-             id="tspan858">●</tspan></text>
-<text
-           transform="matrix(1,0,0,-1,307.3,216.05)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           id="text860"><tspan
-             x="0"
-             y="0"
-             id="tspan862">●</tspan></text>
-<text
-           transform="matrix(1,0,0,-1,88.65,215.37)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           id="text864"><tspan
-             x="0"
-             y="0"
-             id="tspan866">●</tspan></text>
-<text
-           transform="matrix(1,0,0,-1,112.95,215.49)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text868"><tspan
              x="0"
              y="0"
              id="tspan870">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,137.24,215.75)"
+           transform="matrix(1,0,0,-1,307.3,216.05)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text872"><tspan
              x="0"
              y="0"
              id="tspan874">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,161.53,215.91)"
+           transform="matrix(1,0,0,-1,88.65,215.37)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text876"><tspan
              x="0"
              y="0"
              id="tspan878">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,185.83,215.8)"
+           transform="matrix(1,0,0,-1,112.95,215.49)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text880"><tspan
              x="0"
              y="0"
              id="tspan882">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,210.12,215.92)"
+           transform="matrix(1,0,0,-1,137.24,215.75)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text884"><tspan
              x="0"
              y="0"
              id="tspan886">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,234.42,215.97)"
+           transform="matrix(1,0,0,-1,161.53,215.91)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text888"><tspan
              x="0"
              y="0"
              id="tspan890">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,258.71,216.11)"
+           transform="matrix(1,0,0,-1,185.83,215.8)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text892"><tspan
              x="0"
              y="0"
              id="tspan894">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,283.01,215.9)"
+           transform="matrix(1,0,0,-1,210.12,215.92)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text896"><tspan
              x="0"
              y="0"
              id="tspan898">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,134.56)"
+           transform="matrix(1,0,0,-1,234.42,215.97)"
            style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text900"><tspan
              x="0"
              y="0"
              id="tspan902">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,120.88)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(1,0,0,-1,258.71,216.11)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text904"><tspan
              x="0"
              y="0"
              id="tspan906">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,107.2)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(1,0,0,-1,283.01,215.9)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text908"><tspan
              x="0"
              y="0"
              id="tspan910">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,93.52)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(1,0,0,-1,65.44,134.56)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text912"><tspan
              x="0"
              y="0"
              id="tspan914">●</tspan></text>
 <text
-           transform="matrix(1,0,0,-1,65.44,79.84)"
-           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(1,0,0,-1,65.44,120.88)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
            id="text916"><tspan
              x="0"
              y="0"
              id="tspan918">●</tspan></text>
 <text
+           transform="matrix(1,0,0,-1,65.44,107.2)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="text920"><tspan
+             x="0"
+             y="0"
+             id="tspan922">●</tspan></text>
+<text
+           transform="matrix(1,0,0,-1,65.44,93.52)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="text924"><tspan
+             x="0"
+             y="0"
+             id="tspan926">●</tspan></text>
+<text
+           transform="matrix(1,0,0,-1,65.44,79.84)"
+           style="font-variant:normal;font-weight:normal;font-size:7.48000002px;font-family:ZapfDingbats;-inkscape-font-specification:ZapfDingbats;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="text928"><tspan
+             x="0"
+             y="0"
+             id="tspan930">●</tspan></text>
+<text
            transform="matrix(1,0,0,-1,79.2,132.85)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text920"><tspan
+           id="text932"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001"
              y="0"
              sodipodi:role="line"
-             id="tspan922">selfing = 1</tspan></text>
+             id="tspan934">selfing = 1</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,119.17)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text924"><tspan
+           id="text936"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001 55.032001 58.368"
              y="0"
              sodipodi:role="line"
-             id="tspan926">selfing = 0.9</tspan></text>
+             id="tspan938">selfing = 0.9</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,105.49)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text928"><tspan
+           id="text940"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001 55.032001 58.368"
              y="0"
              sodipodi:role="line"
-             id="tspan930">selfing = 0.5</tspan></text>
+             id="tspan942">selfing = 0.5</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,91.81)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text932"><tspan
+           id="text944"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001 55.032001 58.368"
              y="0"
              sodipodi:role="line"
-             id="tspan934">selfing = 0.1</tspan></text>
+             id="tspan946">selfing = 0.1</tspan></text>
 <text
            transform="matrix(1,0,0,-1,79.2,78.13)"
            style="font-variant:normal;font-weight:normal;font-size:12px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="text936"><tspan
+           id="text948"><tspan
              x="0 6 12.672 15.336 18.672001 21.336 28.007999 34.68 38.015999 45.023998 48.360001"
              y="0"
              sodipodi:role="line"
-             id="tspan938">selfing = 0</tspan></text>
+             id="tspan950">selfing = 0</tspan></text>
 </g></g></g></svg>
