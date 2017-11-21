@@ -1,4 +1,4 @@
-#parameters  
+# parameters  
 ***nDemes*** // number of demes  
 ***maxIndPerDem*** // carrying capacity per deme  
 ***nGeneration*** // number of generations to simulate  
@@ -16,7 +16,7 @@
 ***sexAvantage*** // avantage confered by the Y or Z chromosome over hermaphrodites  
 ***selfingRate*** // probability to have an ovule being fertilized by sperm from the same individual  
   
-#life cycle  
+# life cycle  
 loop over generations:  
 	compute for ech of the ***nDemes*** deme, ***N***, the number of babies to produce, as the sum of (floor(X) + Binom(n=1, p=X-floor(x)) where X = ***femaleAllocation*** x ***fecundity***) over individuals. Female allocation is the sum of allelic effects over the ***nQuantiLoci*** loci  
 	sample the mothers:  random sampling with replacement and weigted by the femaleAllocation  
@@ -27,13 +27,13 @@ loop over generations:
 	Only the ***nDemes - nExtinctedDemes*** will receive migrants and will send migrants + recolonizers.  
 	add the migrants/recolonizers:  
 		loop over demes:  
-			##if non-extincted deme:  
+			## if non-extincted deme:  
 				new number of individuals = number of babies + number of immigrants the deme will receive  
 				if the new number of individuals > ***maxIndPerDem***:  
 					number of individuals is truncated to ***maxIndPerDem*** with immigrants replacing autochtones  
 				the immigrants only come from the non-extincted demes. For each migrant individual, the emigrant deme is randomly sampled among the non-extincted demes with a probability weighted by their seed production.  
 				for gain of speed, the migrant individual is not produced by a new round of panmixia within the sampled deme, but is a copy/paste of a random individual (uniform sampling).  
-			##if extincted deme:
+			## if extincted deme:
 				new number of individuals = number of recolonizers  
 				the recolonizers only come from the non-extincted demes. For each colonizer individual, the emigrant deme is randomly sampled among the non-extincted demes with a probability weighted by their seed production.  
 				for gain of speed, the colonizer is a copy/paste of a random individual (uniform sampling).  
