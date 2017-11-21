@@ -22,7 +22,7 @@
     * sample the ***N*** mothers:  random sampling with replacement among individuals weigted by their femaleAllocation  
     * sample the ***N*** fathers: random sampling with replacement among individuals weighted by their maleAllocation (= 1 - femaleAllocation)  
     * transmission of parental alleles with mutations. Each parental allele of the neutral and quantitative loci has a transmission probability of 0.5  
-    * __***compute statistics (sex-allocation, Fst, Jost's D, etc ...)***__
+    * ***compute statistics (sex-allocation, Fst, Jost's D, etc ...)***
     * sample a number ***nExtinctedDemes*** of extincted demes.  
     * Only the ***nDemes - nExtinctedDemes*** will receive migrants and will send migrants + recolonizers.  
     * add the migrants/recolonizers:  
