@@ -18,7 +18,7 @@
   
 # life cycle  
   - loop over generations:  
-    * compute for each of the ***nDemes*** deme, ***N***, the number of seeds to produce per individual, equal to __floor(X) + Binom(n=1, p=X-floor(x))__ where __X = ***femaleAllocation*** x ***fecundity***__. The female allocation of an individual is equal to the sum of allelic effects over the ***nQuantiLoci*** loci  
+    * compute for each individual of the ***nDemes*** deme, ***N***, the number of seeds to produce per individual, equal to __floor(X) + Binom(n=1, p=X-floor(x))__ where __X = ***femaleAllocation*** x ***fecundity***__. The female allocation of an individual is equal to the sum of allelic effects over the ***nQuantiLoci*** loci  
     * sample the ***N*** mothers:  random sampling with replacement among individuals weigted by their femaleAllocation  
     * sample the ***N*** fathers: random sampling with replacement among individuals weighted by their maleAllocation (= 1 - femaleAllocation)  
     * transmission of parental alleles with mutations. Each parental allele of the neutral and quantitative loci has a transmission probability of 0.5  
