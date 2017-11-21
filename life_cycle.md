@@ -26,7 +26,7 @@
     * sample a number ***nExtinctedDemes*** of extincted demes.  
     * Only the ***nDemes - nExtinctedDemes*** will receive migrants and will send migrants + recolonizers.  
     * add the migrants/recolonizers:  
-            - loop over demes:  
+      + loop over demes:  
                    - if non-extincted deme:  
                           - new number of individuals = number of babies + number of immigrants the deme will receive  
                           - if the new number of individuals > ***maxIndPerDem***:  
