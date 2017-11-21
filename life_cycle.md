@@ -1,4 +1,4 @@
-# parameters  
+# parameters of the simulator  
 ***nDemes*** // number of demes  
 ***maxIndPerDem*** // carrying capacity per deme  
 ***nGeneration*** // number of generations to simulate  
