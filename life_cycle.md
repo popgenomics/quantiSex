@@ -18,16 +18,16 @@
   
 # life cycle  
 loop over generations:  
-	+ compute for ech of the ***nDemes*** deme, ***N***, the number of babies to produce, as the sum of (floor(X) + Binom(n=1, p=X-floor(x)) where X = ***femaleAllocation*** x ***fecundity***) over individuals. Female allocation is the sum of allelic effects over the ***nQuantiLoci*** loci  
-	+ sample the mothers:  random sampling with replacement and weigted by the femaleAllocation  
-	+ sample the fathers: random sampling with replacement and weigted by the maleAllocation (= 1 - femaleAllocation)  
-	+ transmission of parental alleles with mutations. Each parental allele has a transmission probability of 0.5  
-	+ __***compute statistics (sex-allocation, Fst, Jost's D, etc ...)***__
-	+ sample a number ***nExtinctedDemes*** of extincted demes.  
-	+ Only the ***nDemes - nExtinctedDemes*** will receive migrants and will send migrants + recolonizers.  
-	+ add the migrants/recolonizers:  
-	+ 	+ loop over demes:  
-	+ 	+ 	## if non-extincted deme:  
+	* compute for ech of the ***nDemes*** deme, ***N***, the number of babies to produce, as the sum of (floor(X) + Binom(n=1, p=X-floor(x)) where X = ***femaleAllocation*** x ***fecundity***) over individuals. Female allocation is the sum of allelic effects over the ***nQuantiLoci*** loci  
+	* sample the mothers:  random sampling with replacement and weigted by the femaleAllocation  
+	* sample the fathers: random sampling with replacement and weigted by the maleAllocation (= 1 - femaleAllocation)  
+	* transmission of parental alleles with mutations. Each parental allele has a transmission probability of 0.5  
+	* __***compute statistics (sex-allocation, Fst, Jost's D, etc ...)***__
+	* sample a number ***nExtinctedDemes*** of extincted demes.  
+	* Only the ***nDemes - nExtinctedDemes*** will receive migrants and will send migrants + recolonizers.  
+	* add the migrants/recolonizers:  
+	* 	loop over demes:  
+	* 		## if non-extincted deme:  
 				new number of individuals = number of babies + number of immigrants the deme will receive  
 				if the new number of individuals > ***maxIndPerDem***:  
 					number of individuals is truncated to ***maxIndPerDem*** with immigrants replacing autochtones  
