@@ -19,8 +19,8 @@
 # life cycle  
 loop over generations:  
   - compute for ech of the ***nDemes*** deme, ***N***, the number of babies to produce, as the sum of (floor(X) + Binom(n=1, p=X-floor(x)) where X = ***femaleAllocation*** x ***fecundity***) over individuals. Female allocation is the sum of allelic effects over the ***nQuantiLoci*** loci  
-     - sample the mothers:  random sampling with replacement and weigted by the femaleAllocation  
-     - sample the fathers: random sampling with replacement and weigted by the maleAllocation (= 1 - femaleAllocation)  
+    * sample the mothers:  random sampling with replacement and weigted by the femaleAllocation  
+      + sample the fathers: random sampling with replacement and weigted by the maleAllocation (= 1 - femaleAllocation)  
      - transmission of parental alleles with mutations. Each parental allele has a transmission probability of 0.5  
      - __***compute statistics (sex-allocation, Fst, Jost's D, etc ...)***__
      - sample a number ***nExtinctedDemes*** of extincted demes.  
