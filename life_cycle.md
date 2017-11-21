@@ -17,7 +17,7 @@
 ***selfingRate*** // probability to have an ovule being fertilized by sperm from the same individual  
   
 # life cycle  
-loop over generations:  
+  - loop over generations:  
   - compute for ech of the ***nDemes*** deme, ***N***, the number of babies to produce, as the sum of (floor(X) + Binom(n=1, p=X-floor(x)) where X = ***femaleAllocation*** x ***fecundity***) over individuals. Female allocation is the sum of allelic effects over the ***nQuantiLoci*** loci  
     * sample the mothers:  random sampling with replacement and weigted by the femaleAllocation  
     * sample the fathers: random sampling with replacement and weigted by the maleAllocation (= 1 - femaleAllocation)  
