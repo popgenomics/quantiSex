@@ -18,7 +18,7 @@
   
 # life cycle  
   - loop over generations:  
-    * compute for ech of the ***nDemes*** deme, ***N***, the number of babies to produce, as the sum of (floor(X) + Binom(n=1, p=X-floor(x)) where X = ***femaleAllocation*** x ***fecundity***) over individuals. The female allocation of an individual is equal to the sum of allelic effects over the ***nQuantiLoci*** loci  
+    * compute for each of the ***nDemes*** deme, ***N***, the number of seeds to produce per individual, equal to __floor(X) + Binom(n=1, p=X-floor(x))__ where __X = ***femaleAllocation*** x ***fecundity***__. The female allocation of an individual is equal to the sum of allelic effects over the ***nQuantiLoci*** loci  
     * sample the ***N*** mothers:  random sampling with replacement and weigted by the femaleAllocation  
     * sample the ***N*** fathers: random sampling with replacement and weigted by the maleAllocation (= 1 - femaleAllocation)  
     * transmission of parental alleles with mutations. Each parental allele of the neutral and quantitative loci has a transmission probability of 0.5  
@@ -28,7 +28,7 @@
     * add the migrants/recolonizers:  
       * loop over demes:  
         * if non-extincted deme:  
-          * new number of individuals = number of babies + number of immigrants the deme will receive  
+          * new number of individuals = number of seeds + number of immigrants the deme will receive  
           * if the new number of individuals > ***maxIndPerDem***:  
             * number of individuals is truncated to ***maxIndPerDem*** with immigrants replacing autochtones  
           * the immigrants only come from the non-extincted demes. For each migrant individual, the emigrant deme is randomly sampled among the non-extincted demes with a probability weighted by their seed production.  
