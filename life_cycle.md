@@ -28,13 +28,13 @@
     * add the migrants/recolonizers:  
       * loop over demes:  
         * if non-extincted deme:  
-                          - new number of individuals = number of babies + number of immigrants the deme will receive  
-                          - if the new number of individuals > ***maxIndPerDem***:  
-                                 - number of individuals is truncated to ***maxIndPerDem*** with immigrants replacing autochtones  
-                          - the immigrants only come from the non-extincted demes. For each migrant individual, the emigrant deme is randomly sampled among the non-extincted demes with a probability weighted by their seed production.  
-                          - for gain of speed, the migrant individual is not produced by a new round of panmixia within the sampled deme, but is a copy/paste of a random individual (uniform sampling).  
-                   - if extincted deme:
-                          - new number of individuals = number of recolonizers  
-                          - the recolonizers only come from the non-extincted demes. For each colonizer individual, the emigrant deme is randomly sampled among the non-extincted demes with a probability weighted by their seed production.  
-                          - for gain of speed, the colonizer is a copy/paste of a random individual (uniform sampling).  
+          * new number of individuals = number of babies + number of immigrants the deme will receive  
+          * if the new number of individuals > ***maxIndPerDem***:  
+            * number of individuals is truncated to ***maxIndPerDem*** with immigrants replacing autochtones  
+          * the immigrants only come from the non-extincted demes. For each migrant individual, the emigrant deme is randomly sampled among the non-extincted demes with a probability weighted by their seed production.  
+          * for gain of speed, the migrant individual is not produced by a new round of panmixia within the sampled deme, but is a copy/paste of a random individual (uniform sampling).  
+        * if extincted deme:
+          * new number of individuals = number of recolonizers  
+          * the recolonizers only come from the non-extincted demes. For each colonizer individual, the emigrant deme is randomly sampled among the non-extincted demes with a probability weighted by their seed production.  
+          * for gain of speed, the colonizer is a copy/paste of a random individual (uniform sampling).  
 
