@@ -45,6 +45,7 @@ void statisticsPopulations(Deme* population, const int nDemes, const int maxIndP
 double fstMullon(const int maxIndPerDem, const double extinction, const int recolonization, const double migration);
 double fstRousset(const int maxIndPerDem, const double extinction, const int recolonization, const double migration, const int colonizationModel);
 void sexInvador(gsl_rng* r, Deme* population, const int nDemes, const int* extinctionStatus, const double sexAvantage, const int sexualSystem, const int fecundity);
+double empirical_fst(Deme* population, const int nDemes, const long nNtrlLoci);
 
 int main(int argc, char *argv[]){
 
@@ -88,6 +89,9 @@ int main(int argc, char *argv[]){
 
 	initializePopulation(r, population, nDemes, maxIndPerDem, nNtrlLoci, nQuantiLoci, fecundity);
 
+	// fst
+	double fst = 0.0;
+
 	// Evolution of the metapopulation
 	for(i=0; i<=nGeneration; i++){	// start of the loop 'i' over the generations
 
@@ -120,6 +124,8 @@ int main(int argc, char *argv[]){
 		statisticsPopulations(newPopulation, nDemes, maxIndPerDem, nQuantiLoci, fecundity, migration, extinction, recolonization, sexualSystem, sexAvantage, seed, i, selfingRate, colonizationModel);
 		if(i == nGeneration){
 			genePop(newPopulation, nDemes, nNtrlLoci, seed, i);
+			fst = empirical_fst(population, nDemes, nNtrlLoci);
+			printf("z_bar = %f\n", fst);
 		}
 		//writeNindividuals(newPopulation, nDemes, extinction, migration, seed); // to un-comment only if we want #individuals and femaleAllocation per deme per generation
 
@@ -433,7 +439,11 @@ void panmixie(gsl_rng* r, Deme* population, Deme* newPopulation, const int nDeme
 				}while(tmp<2*nQuantiLoci);
 
 				newPopulation[i].maleAllocation[j] = 1 - newPopulation[i].femaleAllocation[j];	// set the male allocation as (1 - femaleAllocation)
-				newPopulation[i].nOffsprings[j] = floor(fecundity * newPopulation[i].femaleAllocation[j]) + gsl_ran_binomial(r, (fecundity * newPopulation[i].femaleAllocation[j]) - floor(fecundity * newPopulation[i].femaleAllocation[j]), 1);	// set the #of_offsprings produced for each individual
+//				newPopulation[i].nOffsprings[j] = floor(fecundity * newPopulation[i].femaleAllocation[j]) + gsl_ran_binomial(r, (fecundity * newPopulation[i].femaleAllocation[j]) - floor(fecundity * newPopulation[i].femaleAllocation[j]), 1);	// set the #of_offsprings produced for each individual
+				newPopulation[i].nOffsprings[j] = gsl_ran_poisson(r, fecundity * newPopulation[i].femaleAllocation[j]);
+
+				//printf("fecundity = %d\tfemaleAllocation = %f\tnombre de babies = %d\n", fecundity, newPopulation[i].femaleAllocation[j], newPopulation[i].nOffsprings[j]);
+
 
 				if(newPopulation[i].sex[j] == 0){ // if heterogametic individual
 //				if(newPopulation[i].sexChro[2*j] != newPopulation[i].sexChro[2*j+1]){ // if heterogametic individual
@@ -820,8 +830,7 @@ void genePop(Deme* population, const int nDemes, const int nNtrlLoci, const int 
 
 //	sprintf(commandLineOne, "Genepop settingsFile=%s Mode=Batch >/dev/null", nameOfSettingFile); // external call of genepop (Rousset)
 //	sprintf(commandLineTwo, "tail -n%d %s.FST | grep 'Locus'>tmp_%d.txt; tail -n%d %s.FST | grep 'All' >>tmp_%d.txt; mv tmp_%d.txt %s.FST", nNtrlLoci + 5, nameOfGenePopFile, seed, nNtrlLoci + 5, nameOfGenePopFile, seed, seed, nameOfGenePopFile); // external formating of genepop's output.
-// saved CR 2/09/2016	sprintf(commandLineThree, "rm -rf cmdline.txt fichier.in %s %s", nameOfGenePopFile, nameOfSettingFile);
-	sprintf(commandLineThree, "rm -rf cmdline.txt fichier.in %s ", nameOfSettingFile);
+	sprintf(commandLineThree, "rm -rf cmdline.txt fichier.in %s %s", nameOfGenePopFile, nameOfSettingFile);
 
 	sprintf(commandLineDiveRsity, "diveRsity.R input=%s output=%s", nameOfGenePopFile, nameOfROutputFile);
 
@@ -1085,4 +1094,30 @@ for(i in commandArgs()){
 a=diffCalc(input, fst=T, pairwise=F, outfile=output)
 
 */
+
+
+double empirical_fst(Deme* population, const int nDemes, const long nNtrlLoci){
+	int k = 0;
+	int j = 0;
+	int i = 0;
+	int cnt = 0;
+
+	double z_bar = 0.0;
+
+	// z_bar
+	for(k=0; k<nNtrlLoci; k++){ // loop over loci k
+		z_bar = 0.0;
+		for(j=0; j<nDemes; j++){ // loop over demes j
+			for(i=0; i<population[j].nIndividus; i++){ // loop over individuals i
+				z_bar += population[j].ntrlLoci[2*nNtrlLoci*i + 2*k + 0]; // allele 1
+				z_bar += population[j].ntrlLoci[2*nNtrlLoci*i + 2*k + 1]; // allele 2
+				cnt += 2;
+			}
+		}
+	}
+	z_bar = z_bar/cnt;
+
+	// return(fst);
+	return(z_bar);
+}
 

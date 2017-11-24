@@ -1,0 +1,23 @@
+# quantisex
+## to compile
+module load gcc
+LD_LIBRARY_PATH=/home/roux/gsl/lib
+gcc -I/home/roux/gsl/include -L/home/roux/gsl/lib quantiSex.c -lgsl -lgslcblas -lm -Wall -Wextra -Wshadow -Werror -O3 -o quantiSex
+
+## to run:
+#"# the first time
+module load gcc
+LD_LIBRARY_PATH=/home/roux/gsl/lib
+./quantisex
+
+### the other times
+./quantisex
+
+
+# R script calling diversity
+## adding the following lines
+#!/home/roux/R/bin/Rscript --vanilla
+# # !/usr/bin/env Rscript
+#./diveRsity.R input=nameOfGenePopFile output=nameOfROutputFile
+.libPaths("/home/roux/softwares/R-3.4.2/library")
+
