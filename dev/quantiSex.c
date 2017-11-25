@@ -6,7 +6,7 @@
 #include <gsl/gsl_randist.h>
 #include <gsl/gsl_statistics.h>
 #include <gsl/gsl_permutation.h>
-#define VERSION "19.07.2016"
+#define VERSION "25.11.2017"
 #define DEPENDENCY "diveRsity.R\n"
 #define MAX_NUMBER_OF_INITIAL_NTRL_ALLELES 999	// number of segregating alleles when generating the first parental population
 #define RANGE 0.1	// value in [0;1] to modify the current allelic effect between [(1-RANGE) x current_value ; (1+RANGE) * current_value].
@@ -41,7 +41,7 @@ void replacement(gsl_rng* r, Deme* population, Deme* newPopulation, const int nD
 void writeNindividuals(const Deme* population, const int nDemes, const double extinction, const double migration, const int seed);
 void genePop(Deme* population, const int nDemes, const int nNtrlLoci, const int seed, int time);
 void checkCommandLine(int argc);
-void statisticsPopulations(Deme* population, const int nDemes, const int maxIndPerDem, const int nQuantiLoci, const int fecundity, const double migration, const double extinction, const int recolonization, const int sexualSystem, const double sexAvantage, const int seed, int time, const double selfingRate, const int colonizationModel);
+void statisticsPopulations(Deme* population, const int nDemes, const int maxIndPerDem, const int nQuantiLoci, const int fecundity, const double migration, const double extinction, const int recolonization, const int sexualSystem, const double sexAvantage, const int seed, int time, const double selfingRate, const int colonizationModel, const double fst_mean);
 double fstMullon(const int maxIndPerDem, const double extinction, const int recolonization, const double migration);
 double fstRousset(const int maxIndPerDem, const double extinction, const int recolonization, const double migration, const int colonizationModel);
 void sexInvador(gsl_rng* r, Deme* population, const int nDemes, const int* extinctionStatus, const double sexAvantage, const int sexualSystem, const int fecundity);
@@ -90,7 +90,7 @@ int main(int argc, char *argv[]){
 	initializePopulation(r, population, nDemes, maxIndPerDem, nNtrlLoci, nQuantiLoci, fecundity);
 
 	// fst
-	double fst = 0.0;
+	double fst_mean = 0.0;
 
 	// Evolution of the metapopulation
 	for(i=0; i<=nGeneration; i++){	// start of the loop 'i' over the generations
@@ -120,13 +120,20 @@ int main(int argc, char *argv[]){
 		}
 
 		panmixie(r, population, newPopulation, nDemes, nNtrlLoci, nQuantiLoci,  ntrlMutation, quantiMutation, fecundity, sexAvantage, sexualSystem, selfingRate);
-
-		statisticsPopulations(newPopulation, nDemes, maxIndPerDem, nQuantiLoci, fecundity, migration, extinction, recolonization, sexualSystem, sexAvantage, seed, i, selfingRate, colonizationModel);
-		if(i == nGeneration){
-			genePop(newPopulation, nDemes, nNtrlLoci, seed, i);
-			fst = empirical_fst(population, nDemes, nNtrlLoci);
-			printf("z_bar = %f\n", fst);
+		
+		if( i%1000 == 0 ){
+			fst_mean = empirical_fst(population, nDemes, nNtrlLoci);
+		}else{
+			fst_mean = -9;
 		}
+
+		if( i == nGeneration ){
+//			genePop(newPopulation, nDemes, nNtrlLoci, seed, i);
+			fst_mean = empirical_fst(population, nDemes, nNtrlLoci);
+			statisticsPopulations(newPopulation, nDemes, maxIndPerDem, nQuantiLoci, fecundity, migration, extinction, recolonization, sexualSystem, sexAvantage, seed, i, selfingRate, colonizationModel, fst_mean);
+		}
+		//statisticsPopulations(newPopulation, nDemes, maxIndPerDem, nQuantiLoci, fecundity, migration, extinction, recolonization, sexualSystem, sexAvantage, seed, i, selfingRate, colonizationModel, fst_mean);
+		
 		//writeNindividuals(newPopulation, nDemes, extinction, migration, seed); // to un-comment only if we want #individuals and femaleAllocation per deme per generation
 
 		// remplacer population par newPopulation
@@ -901,7 +908,7 @@ void genePop(Deme* population, const int nDemes, const int nNtrlLoci, const int 
 
 }
 
-void statisticsPopulations(Deme* population, const int nDemes, const int maxIndPerDem, const int nQuantiLoci, const int fecundity, const double migration, const double extinction, const int recolonization, const int sexualSystem, const double sexAvantage, const int seed, int time, const double selfingRate, const int colonizationModel){
+void statisticsPopulations(Deme* population, const int nDemes, const int maxIndPerDem, const int nQuantiLoci, const int fecundity, const double migration, const double extinction, const int recolonization, const int sexualSystem, const double sexAvantage, const int seed, int time, const double selfingRate, const int colonizationModel, const double fst_mean){
 	// function that calculates the mean female allocation, its standard deviation and the percentage of cosexuals in the metapopulation
 	int i = 0;
 	int j = 0;
@@ -924,7 +931,7 @@ void statisticsPopulations(Deme* population, const int nDemes, const int maxIndP
 	fichierSortie = fopen(nomFichierSortie, "r");
 	if(fichierSortie == NULL){
 		fichierSortie = fopen(nomFichierSortie, "a");
-		fprintf(fichierSortie, "nDemes\tnIndMaxPerDeme\tNtot\tnQuantiLoci\tselfingRate\tfecundity\tmigRate\textRate\tcolonizationModel\trecolonization\tatGeneration\tsexSystem\tsexAvantage\tseed\tmeanFemAlloc\tsdFemAlloc\tmeanFemAllocCosexual\tsdFemAllocCosexual\tcosexualProportion\texpFST_Nmax\texpFST_Nobs\texpFST_Rousset_Nmax\n");
+		fprintf(fichierSortie, "nDemes\tnIndMaxPerDeme\tNtot\tnQuantiLoci\tselfingRate\tfecundity\tmigRate\textRate\tcolonizationModel\trecolonization\tatGeneration\tsexSystem\tsexAvantage\tseed\tmeanFemAlloc\tsdFemAlloc\tmeanFemAllocCosexual\tsdFemAllocCosexual\tcosexualProportion\tobsFST_mean\texpFST_Nmax\texpFST_Nobs\texpFST_Rousset_Nmax\n");
 		fclose(fichierSortie);
 	}else{
 		fclose(fichierSortie);
@@ -986,7 +993,7 @@ void statisticsPopulations(Deme* population, const int nDemes, const int maxIndP
 //			colonizationModelTMP = "propagulePool";
 		}
 
-		fprintf(fichierSortie, "%d\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%s\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\n", nDemes, maxIndPerDem, nIndividusTotal, nQuantiLoci, selfingRate, fecundity, migration, extinction, colonizationModelTMP, recolonization, time, sexualSystem, sexAvantage, seed, meanAllocFemale, sdAllocFemale, meanAllocFemaleCosexual, sdAllocFemaleCosexual, cosexualProportion, fstValue, fstValueDensity, fstRoussetValue);
+		fprintf(fichierSortie, "%d\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%s\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\n", nDemes, maxIndPerDem, nIndividusTotal, nQuantiLoci, selfingRate, fecundity, migration, extinction, colonizationModelTMP, recolonization, time, sexualSystem, sexAvantage, seed, meanAllocFemale, sdAllocFemale, meanAllocFemaleCosexual, sdAllocFemaleCosexual, cosexualProportion, fst_mean, fstValue, fstValueDensity, fstRoussetValue);
 		fclose(fichierSortie);
 	}
 }
@@ -1101,23 +1108,99 @@ double empirical_fst(Deme* population, const int nDemes, const long nNtrlLoci){
 	int j = 0;
 	int i = 0;
 	int cnt = 0;
+	double z_bar_j = 0.0;	
+	double fst_mean = 0.0;
 
-	double z_bar = 0.0;
+	double* fst = NULL;
+	fst = malloc(nNtrlLoci * sizeof(double));
+	if(fst == NULL){
+		exit(0);
+	}
+
+	double* z_bar = NULL;
+	z_bar = malloc(nNtrlLoci * sizeof(double));
+	if(z_bar == NULL){
+		exit(0);
+	}
+
+	double* var_tot = NULL;
+	var_tot = malloc(nNtrlLoci * sizeof(double));
+	if(var_tot == NULL){
+		exit(0);
+	}
+
+	double* var_among_patches = NULL;
+	var_among_patches = malloc(nNtrlLoci * sizeof(double));
+	if(var_among_patches == NULL){
+		exit(0);
+	}
 
 	// z_bar
 	for(k=0; k<nNtrlLoci; k++){ // loop over loci k
-		z_bar = 0.0;
+		z_bar[k] = 0.0;
+		cnt = 0;
 		for(j=0; j<nDemes; j++){ // loop over demes j
 			for(i=0; i<population[j].nIndividus; i++){ // loop over individuals i
-				z_bar += population[j].ntrlLoci[2*nNtrlLoci*i + 2*k + 0]; // allele 1
-				z_bar += population[j].ntrlLoci[2*nNtrlLoci*i + 2*k + 1]; // allele 2
+				z_bar[k] += population[j].ntrlLoci[2*nNtrlLoci*i + 2*k + 0]; // allele 1
+				z_bar[k] += population[j].ntrlLoci[2*nNtrlLoci*i + 2*k + 1]; // allele 2
 				cnt += 2;
 			}
 		}
+		z_bar[k] = z_bar[k]/cnt;
 	}
-	z_bar = z_bar/cnt;
+
+	// variance among patches
+	for(k=0; k<nNtrlLoci; k++){ // loop over loci k
+		var_among_patches[k] = 0;
+
+		cnt = 0;
+		
+		// compute z_bar_j
+		for(j=0; j<nDemes; j++){ // loop over demes j
+			z_bar_j = 0.0;
+			cnt = 0;
+			for(i=0; i<population[j].nIndividus; i++){ // loop over individuals i
+				z_bar_j += population[j].ntrlLoci[2*nNtrlLoci*i + 2*k + 0]; // allele 1
+				z_bar_j += population[j].ntrlLoci[2*nNtrlLoci*i + 2*k + 1]; // allele 2
+				cnt += 2;
+			}
+			z_bar_j /= cnt;
+			
+			var_among_patches[k] += pow(z_bar_j - z_bar[k], 2);
+		}
+		var_among_patches[k] /= nDemes;
+		
+	}
+
+	// total variance in the population
+	for(k=0; k<nNtrlLoci; k++){ // loop over loci k
+		var_tot[k] = 0.0;
+		cnt = 0;
+		for(j=0; j<nDemes; j++){ // loop over demes j
+			for(i=0; i<population[j].nIndividus; i++){ // loop over individuals i
+				var_tot[k] += pow(population[j].ntrlLoci[2*nNtrlLoci*i + 2*k + 0] - z_bar[k], 2); // allele 1
+				var_tot[k] += pow(population[j].ntrlLoci[2*nNtrlLoci*i + 2*k + 1] - z_bar[k], 2); // allele 2
+				cnt += 2;
+			}
+		}
+		var_tot[k] = var_tot[k]/cnt;
+
+		fst[k] = var_among_patches[k] / var_tot[k];
+	}
+
+	// print fst values
+	for(k=0; k<nNtrlLoci; k++){
+		fst_mean += fst[k];
+	}
+	fst_mean /= nNtrlLoci;
+	
+	// free memory
+	free(fst);
+	free(z_bar);
+	free(var_tot);
+	free(var_among_patches);
 
 	// return(fst);
-	return(z_bar);
+	return(fst_mean);
 }
 
