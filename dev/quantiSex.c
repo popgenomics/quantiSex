@@ -46,6 +46,8 @@ double fstMullon(const int maxIndPerDem, const double extinction, const int reco
 double fstRousset(const int maxIndPerDem, const double extinction, const int recolonization, const double migration, const int colonizationModel);
 void sexInvador(gsl_rng* r, Deme* population, const int nDemes, const int* extinctionStatus, const double sexAvantage, const int sexualSystem, const int fecundity);
 double empirical_fst(Deme* population, const int nDemes, const long nNtrlLoci);
+double nc(const Deme* population, const int nDemes, const int nNtrlLoci, const int locus);
+double heteroZ(const double* cont_table_tot);
 
 int main(int argc, char *argv[]){
 
@@ -121,17 +123,17 @@ int main(int argc, char *argv[]){
 
 		panmixie(r, population, newPopulation, nDemes, nNtrlLoci, nQuantiLoci,  ntrlMutation, quantiMutation, fecundity, sexAvantage, sexualSystem, selfingRate);
 		
-		if( i%1000 == 0 ){
-			fst_mean = empirical_fst(population, nDemes, nNtrlLoci);
-		}else{
-			fst_mean = -9;
-		}
-
-		if( i == nGeneration ){
-//			genePop(newPopulation, nDemes, nNtrlLoci, seed, i);
+/*		if( i%200 == 0 && i != nGeneration ){
 			fst_mean = empirical_fst(population, nDemes, nNtrlLoci);
 			statisticsPopulations(newPopulation, nDemes, maxIndPerDem, nQuantiLoci, fecundity, migration, extinction, recolonization, sexualSystem, sexAvantage, seed, i, selfingRate, colonizationModel, fst_mean);
 		}
+*/
+		if( i == nGeneration ){
+			fst_mean = empirical_fst(population, nDemes, nNtrlLoci);
+			statisticsPopulations(newPopulation, nDemes, maxIndPerDem, nQuantiLoci, fecundity, migration, extinction, recolonization, sexualSystem, sexAvantage, seed, i, selfingRate, colonizationModel, fst_mean);
+			genePop(newPopulation, nDemes, nNtrlLoci, seed, i);
+		}
+
 		//statisticsPopulations(newPopulation, nDemes, maxIndPerDem, nQuantiLoci, fecundity, migration, extinction, recolonization, sexualSystem, sexAvantage, seed, i, selfingRate, colonizationModel, fst_mean);
 		
 		//writeNindividuals(newPopulation, nDemes, extinction, migration, seed); // to un-comment only if we want #individuals and femaleAllocation per deme per generation
@@ -1109,6 +1111,9 @@ double empirical_fst(Deme* population, const int nDemes, const long nNtrlLoci){
 	int i = 0;
 	int cnt = 0;
 	double z_bar_j = 0.0;	
+	
+	// v1
+	/*/
 	double fst_mean = 0.0;
 
 	double* fst = NULL;
@@ -1116,6 +1121,7 @@ double empirical_fst(Deme* population, const int nDemes, const long nNtrlLoci){
 	if(fst == NULL){
 		exit(0);
 	}
+	*/
 
 	double* z_bar = NULL;
 	z_bar = malloc(nNtrlLoci * sizeof(double));
@@ -1134,6 +1140,11 @@ double empirical_fst(Deme* population, const int nDemes, const long nNtrlLoci){
 	if(var_among_patches == NULL){
 		exit(0);
 	}
+
+	// global fst
+	double num = 0.0;
+	double denom = 0.0;
+	double nc_k = 0.0;
 
 	// z_bar
 	for(k=0; k<nNtrlLoci; k++){ // loop over loci k
@@ -1174,6 +1185,7 @@ double empirical_fst(Deme* population, const int nDemes, const long nNtrlLoci){
 
 	// total variance in the population
 	for(k=0; k<nNtrlLoci; k++){ // loop over loci k
+		nc_k = 0.0;
 		var_tot[k] = 0.0;
 		cnt = 0;
 		for(j=0; j<nDemes; j++){ // loop over demes j
@@ -1185,22 +1197,161 @@ double empirical_fst(Deme* population, const int nDemes, const long nNtrlLoci){
 		}
 		var_tot[k] = var_tot[k]/cnt;
 
-		fst[k] = var_among_patches[k] / var_tot[k];
+		// v1
+		/*if( var_tot[k] == 0 ){
+			fst[k] = 1;
+		}else{
+			if( var_among_patches[k] > var_tot[k]){
+				fst[k] = 1;
+			}else{
+				fst[k] = var_among_patches[k] / var_tot[k];
+			}
+		}*/
+		
+		// v2
+		nc_k = nc(population, nDemes, nNtrlLoci, k);
+		num += var_among_patches[k] * nc_k;
+		denom += var_tot[k] * nc_k;
 	}
 
-	// print fst values
+	// v1
+	/* 
+	// average fst
+	int nLoci = 0;
+	fst_mean = 0.0;
 	for(k=0; k<nNtrlLoci; k++){
-		fst_mean += fst[k];
+		if( fst[k] != -9 ){
+			nLoci += 1;
+			fst_mean += fst[k];
+//			printf("%f\n", fst[k]);
+		}
 	}
-	fst_mean /= nNtrlLoci;
 	
+	if( nLoci >= 1 ){
+		fst_mean /= (1.0*nLoci);
+	}else{
+		fst_mean = -9;
+	}*/
+
 	// free memory
-	free(fst);
+	//free(fst);
 	free(z_bar);
 	free(var_tot);
 	free(var_among_patches);
 
 	// return(fst);
-	return(fst_mean);
+	//return(fst_mean); // mean fst
+	if( denom == 0 ){
+		return(-9);
+	}else{
+		if(num>denom){
+			return(1.0);
+		}else{
+			return(num/denom); // global fst
+		}
+	}
+}
+
+
+double nc(const Deme* population, const int nDemes, const int nNtrlLoci, const int locus){
+	int i = 0;
+	int j = 0;
+	long allele1 = 0;
+	long allele2 = 0;
+
+	double* cont_table_tot = NULL;
+	cont_table_tot = malloc((MAX_NUMBER_OF_INITIAL_NTRL_ALLELES+1)*sizeof(double));
+	
+	if(cont_table_tot == NULL){
+		exit(0);
+	}
+
+	for(i=0; i<MAX_NUMBER_OF_INITIAL_NTRL_ALLELES+1; i++){
+		cont_table_tot[i] = 0;
+	}	
+
+	for(i=0; i<nDemes; i++){
+		for(j=0; j<population[i].nIndividus; j++){
+			allele1 = population[i].ntrlLoci[2*nNtrlLoci*j + locus*2];
+			allele2 = population[i].ntrlLoci[2*nNtrlLoci*j + locus*2 + 1];
+			
+			cont_table_tot[allele1]++;
+			cont_table_tot[allele2]++;
+		}
+	}
+
+	// compute Hs
+	double Hs = 0.0;
+	for(i=0; i<nDemes; i++){
+		double* cont_table_pop = NULL;
+		cont_table_pop = malloc((MAX_NUMBER_OF_INITIAL_NTRL_ALLELES+1)*sizeof(double));
+		
+		if(cont_table_pop == NULL){
+			exit(0);
+		}
+		
+		for(j=0; j<MAX_NUMBER_OF_INITIAL_NTRL_ALLELES+1; j++){
+			cont_table_pop[j]=0;
+		}
+
+
+		for(j=0; j<population[i].nIndividus; j++){
+			allele1 = population[i].ntrlLoci[2*nNtrlLoci*j + locus*2];
+			allele2 = population[i].ntrlLoci[2*nNtrlLoci*j + locus*2 + 1];
+			
+			cont_table_pop[allele1]++;
+			cont_table_pop[allele2]++;
+		}
+		printf("Hs: ");
+		Hs += heteroZ(cont_table_pop);
+		free(cont_table_pop);
+	}
+	Hs /= nDemes; // mean Hs
+
+
+	// compute n, S1 and S2 (section 7.6 de la doc de la version 4.7 de genePop)
+	int n = 0;
+	int S1 = 0;
+	double S2 = 0.0;
+	
+	for(i=0; i<MAX_NUMBER_OF_INITIAL_NTRL_ALLELES+1; i++){
+		if(cont_table_tot[i] > 0){
+			++n;
+			S1 = S1 + cont_table_tot[i];
+			S2 = S2 + pow(cont_table_tot[i], 2); 
+		}
+	}
+
+	double Htot = 0.0;
+	printf("Hz: ");
+	Htot = heteroZ(cont_table_tot);
+	printf("Htot = %f\tHs = %f\tFst = %f\n", Htot, Hs, 1-Hs/Htot);
+	
+	free(cont_table_tot);
+	
+	if( n<=1 ){
+		return(0.0);
+	}else{
+		return((S1-S2/S1)/(n-1.0));
+	}
+}
+
+
+double heteroZ(const double* cont_table){
+	int i = 0;
+	double n_ind = 0.0;
+	double Hs = 1.0;
+	
+	for(i=0; i<MAX_NUMBER_OF_INITIAL_NTRL_ALLELES+1; i++){
+		n_ind += 1.0 * cont_table[i];
+	} 
+	printf("%f ind\n", n_ind);
+	
+	for(i=0; i<MAX_NUMBER_OF_INITIAL_NTRL_ALLELES+1; i++){
+		Hs -= pow(cont_table[i]/n_ind, 2);
+	} 
+
+	return(Hs);	
+	
 }
 
