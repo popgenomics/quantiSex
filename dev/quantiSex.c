@@ -6,7 +6,7 @@
 #include <gsl/gsl_randist.h>
 #include <gsl/gsl_statistics.h>
 #include <gsl/gsl_permutation.h>
-#define VERSION "28.11.2017"
+#define VERSION "26.04.2018"
 #define DEPENDENCY "None\n"
 #define MAX_NUMBER_OF_INITIAL_NTRL_ALLELES 999	// number of segregating alleles when generating the first parental population
 #define RANGE 0.1	// value in [0;1] to modify the current allelic effect between [(1-RANGE) x current_value ; (1+RANGE) * current_value].
@@ -140,7 +140,12 @@ int main(int argc, char *argv[]){
 			statisticsPopulations(newPopulation, nDemes, maxIndPerDem, nQuantiLoci, fecundity, migration, extinction, recolonization, sexualSystem, sexAvantage, seed, i, selfingRate, colonizationModel, fst_mean);
 		}
 */
-		if( i == nGeneration ){
+//		if( i == nGenerationUnisex+1 ){
+//			afficherPopulation(population, nDemes, nNtrlLoci, nQuantiLoci, sexualSystem);
+//		}
+
+		//if( i == nGeneration ){
+		if( i%10==0 ){
 			for(j=0; j<5; j++){
 				diff_stats[j] = 0.0;
 			}
@@ -836,7 +841,7 @@ void afficherPopulation(Deme* population, const int nDemes, const int nNtrlLoci,
 			for(k=0; k<(2*nQuantiLoci); k++){
 				printf("%.4lf ", population[i].quantiLoci[2*j*nQuantiLoci+k]);
 			}
-		printf("femAlloc: %.4lf nOffs: %d sex: %d sex2: %c\n", population[i].femaleAllocation[j], population[i].nOffsprings[j], population[i].sex[j], sex);
+		printf("femAlloc: %.4lf malAlloc: %4.lf nOffs: %d sex: %d sex2: %c\n", population[i].femaleAllocation[j], population[i].maleAllocation[j], population[i].nOffsprings[j], population[i].sex[j], sex);
 		}
 	}
 }
