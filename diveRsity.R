@@ -1,6 +1,9 @@
-#!/usr/bin/env Rscript
+#!/home/roux/R/bin/Rscript --vanilla
+# # !/usr/bin/env Rscript
 #./diveRsity.R input=nameOfGenePopFile output=nameOfROutputFile
+.libPaths("/home/roux/softwares/R-3.4.2/library")
 library(diveRsity)
+#require(diveRsity)
 options(warn=-1)
 for(i in commandArgs()){
 	tmp = strsplit(i, "=")
