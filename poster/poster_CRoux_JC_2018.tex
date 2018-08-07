@@ -1,0 +1,256 @@
+\documentclass[25pt, a0paper, portrait, margin=0mm, innermargin=15mm,
+     blockverticalspace=15mm, colspace=15mm, subcolspace=8mm]{tikzposter} 
+\tikzposterlatexaffectionproofoff
+
+% LATEX PACKAGES
+% --------------
+
+\usepackage{graphicx}  % package for inserting images, including .pdf
+\usepackage{adjustbox} % package for cropping images
+\usepackage[colorlinks=true, urlcolor=blue]{hyperref} % package for url and hyperlinks
+\usepackage{wrapfig}
+\usepackage[utf8]{inputenc}
+\usepackage{wasysym}
+\usepackage{fontawesome}
+\usepackage{marvosym}
+
+
+% TITLE, AUTHORS, INSTITUTE
+% -------------------------
+
+\title{\textbf{Sex allocation in hermaphroditic metapopulations}}
+\author{Camille Roux\textsuperscript{2}, Charles Mullon\textsuperscript{1}, Samuel Neuenschwander\textsuperscript{1}, Jérôme Goudet\textsuperscript{1} and John R. Pannell\textsuperscript{1}}
+
+\institute{\textsuperscript{1} DEE, University of Lausanne, Switzerland \\ 
+\textsuperscript{2} UMR 8198 - Evo-Eco-Paleo, University of Lille, France \\ 
+Website: \texttt{\href{https://github.com/popgenomics/quantiSex}{https://github.com/popgenomics/quantiSex}}}
+%E-mail: \texttt{\href{mailto:john.pannell@unil.ch}{john.pannell@unil.ch}}}
+
+% THEME SETTING
+% -------------
+
+%\usetheme{Rays}
+\usetheme{Simple}
+\useblockstyle{Minimal}
+%\usecolorstyle[colorPalette=BlueGrayOrange]{Default}
+%\useblockstyle{Default}
+%\usebackgroundstyle{Default}
+%\usetitlestyle{Wave}
+
+
+% HEAD
+% ----
+
+\begin{document}
+\maketitle
+\begin{columns}
+
+% ------------------------
+% COLUMN 1 ---------------
+
+\column{0.5}
+
+% AIMS
+% ----
+
+\block{A. Sex allocation in \textbf{dioecious or gonochoristic} species}
+{
+	\begin{enumerate}
+		\item \textbf{Sex allocation $\approx$ Proportion of {\faMars} and {\faVenus} produced by mothers} (weighted by the relative sex-specific cost of raising offspring). 
+		\item \textbf{In panmictic populations $\Rightarrow$ sex-ratios are balanced.}
+
+		\begin{center}
+		\includegraphics[scale=0.75]{/home/croux/Documents/poster/jacques_monod_2018/selection_minority_sex_v2.pdf}
+		\\Selection for the minority sex
+		%\small{"Ancient coral reefs" by Heinrich Harder (1858-1935) - Wikimedia Commons}
+		\end{center}
+		
+		\item \textbf{Non-random mating $\Rightarrow$ sex-ratios are biased}.\\
+		Competitions among sons for mating ($=$\textbf{L}ocal \textbf{M}ate \textbf{C}ompetition) favours the selection for strategies that bias the sex-ratio towards the production of fewer \textbf{{\faMars}} and more \textbf{{\faVenus}}.
+	
+		\begin{center}
+		\includegraphics[scale=1.2]{/home/croux/Documents/poster/jacques_monod_2018/figure_2_fig_v3.pdf}
+		\end{center}
+
+		\Large{Strong LMC $\Rightarrow$ bias toward daughters} \\
+		\Large{\textcolor{green}{Decreased LMC $\Rightarrow$ production of sons closer to 50\%}} \\
+			
+	\end{enumerate}
+}
+
+\block[bodyoffsety=2cm,titleoffsety=2cm]{B. Sex allocation in demographically stable \textbf{hermaphrodite} ({\LARGE\Hermaphrodite}) populations}
+{
+	\begin{enumerate}
+		\item \textbf{Sex allocation $=$ Relative investment made to {\faMars} \textit{versus} {\faVenus} functions by {\LARGE\Hermaphrodite} individuals.}
+		\item \textbf{If random mating $+$ large dispersion} $\Rightarrow$ {\LARGE\Hermaphrodite} individuals favour \textbf{equal investment in both {\faMars} and {\faVenus} functions} (=50\% of {\faVenus} allocation).
+		\item \textbf{If limited dispersal} $\Rightarrow$ Sib competition $\Rightarrow$ Selection for \textbf{increased investment} in the sex that shows the \textbf{smaller degree of competition} between siblings.
+
+		\begin{center}
+		\includegraphics[scale=1.2]{/home/croux/Documents/poster/jacques_monod_2018/selfing_herma_FIS_simulations.pdf}
+%		Relation between selfing rate in {\LARGE\Hermaphrodite} and optimal {\faVenus$_{allocation}}
+		\\Relation between selfing rate in {\LARGE\Hermaphrodite} and optimal \faVenus allocation.
+		%\small{"Ancient coral reefs" by Heinrich Harder (1858-1935) - Wikimedia Commons}
+		\end{center}
+		A) \faVenus$_{allocation} = \frac{1+s}{2}$ (with symetrical cost and no inbreeding depression)\\
+		B) $F_{IS} = \frac{s}{2-s}$\\
+		C) \textbf{\faVenus$_{allocation}$ is difficult to measure directly from phenotypical traits}, but can be estimated by $F_{IS}$ from neutral molecular markers.\\
+	\end{enumerate}
+}
+
+% DATA
+% ----
+
+%\block{Data}
+%{
+%	\begin{itemize}
+%		\item Species distributional data from the
+%		 \textbf{GASPAR database} (Kulbicki \textit{et al.} 2013, 
+%		 Pravicini \textit{et al.} 2013), with 5331 species in 
+%		 249 grid 5-degree cells that cover 99.76\% of 
+%		 global coral reef area. 
+%		\item Data on species-specific \textbf{vulnerability
+%		to fishing and coral bleaching} 
+%		(Cheung 	\textit{et al.} 2005, Graham \textit{et al.} 2011).
+%		\item Data on five cell-specific 
+%		characteristics (Paravicini \textit{et al.} 2014):
+%	\end{itemize}
+%	\begin{center}
+%		\adjustbox{trim={.0\width} {.0\height} {0.0\width} {.35\height},clip}%
+%		{\includegraphics[scale=1.4]{Figure_1.pdf}}	
+%	\end{center}
+%}
+
+% METHODS
+% -------
+
+\block[bodyoffsety=4cm,titleoffsety=4cm]{C. Questions}
+{
+\textbf{\large \textcolor{green}{High levels of inbreeding can also emerge in outcrossers from metapopulation dynamics (local extinctions and recolonisations).}}
+
+\begin{enumerate}
+\item
+\textbf{\large \textcolor{red}{How rapid must population turnover be to expect a strong biased sex allocation in a metapopulation of {\LARGE\Hermaphrodite}?}}
+\item 
+\textbf{\large \textcolor{red}{What index of inbreeding would be the best predictor of the sex allocation selected?}}
+\end{enumerate}
+}
+
+% ------------------------
+% COLUMN 2 ---------------
+
+\column{0.5}
+
+% RESULTS 
+% -------
+
+\block{D. Quantitative genetic simulations of {\LARGE\Hermaphrodite} metapopulations}
+{
+Model:
+\begin{itemize}
+  \item Multi-deme metapopulation made up of {\Large\Hermaphrodite}.
+  \item Sex allocation is a function of the additive effects of alleles at a single locus subject to recurrent mutations that alter the allelic effects.
+  \item Mating within demes and seed production depends on the sex allocations of individuals.	
+  \item Demes are subject to recurrent stochastic extinction, following which their sites are recolonized through seed dispersal from the rest of the metapopulation.
+  \item Population genetics statistics $F_{ST}$, $F_{IS}$, $G'_{ST}$ and $D_{Jost}$ were computed at 20 unlinked neutral loci.
+
+
+   \begin{center}
+   \includegraphics[scale=1.4]{/home/croux/Documents/poster/jacques_monod_2018/results_v2.pdf}
+   \end{center}
+%  \begin{center}
+%  \adjustbox{trim={.0\width} {.52\height} {0.0\width} {.0\height},clip}%
+%		{\includegraphics[scale=1.4]{Figure_3.pdf}}
+%  \end{center}
+
+   \item \faVenus$_{allocation}$ varies from 0.5 to 1 and $\nearrow$ if: migration $\searrow$ or extinction $\nearrow$ (\textbf{A}).
+   \item Increased gene flow progessively $\searrow$ the equilibrium \faVenus$_{allocation}$ to values expected for single partial selfing populations (\textbf{B}).
+\end{itemize}
+}
+
+
+\block[bodyoffsety=3cm,titleoffsety=3cm]{E. Predicting {\faVenus$_{allocation}$} from neutral molecular markers}
+{
+\begin{center}
+   \includegraphics[scale=1.3]{/home/croux/Documents/poster/jacques_monod_2018/figure_stat_alloc_v2.pdf}
+\end{center}
+
+\begin{itemize}
+  \item \textbf{No positive association between {\faVenus$_{allocation}$} and ($F_{IS}$} (Pearson's $R^{2}=0.0006$; $p-value=0.5494$).
+  \item \textbf{{\faVenus$_{allocation}$} is most associated with $F_{ST}$} (Pearson's $R^{2}=0.84$; $p-value<2.2x10^{16}$).
+  \item New indices of differentiation $G'_{ST}$ and $D_{Jost}$ $\searrow$ when migration $\nearrow$, but also when extinction $\nearrow$.
+  \item Low $D_{Jost}$ can thus describe two opposite situations: \textbf{no population turnover} or \textbf{extreme population turnover}.
+\end{itemize}
+}
+
+
+%\block{Results 2: Removing presences in site-species occurrence (SSO) matrix}
+%{
+%\begin{center}
+%	\includegraphics[scale=1.5]{Figure_5.pdf}
+%\end{center}
+%
+%}
+
+% CONCLUSIONS
+% -----------
+
+\block[bodyoffsety=2cm,titleoffsety=2cm]{Conclusions}
+{
+%\begin{itemize}
+\begin{enumerate}
+\item Population \textbf{turnover should select for {\faVenus}-biased allocation} if migration is insufficiently strong to erase the genetic signatures of inbreeding brought about by colonisation.
+\item In metapopulations: \textbf{$F_{ST}$ is a much better predictor of the sex allocation selected than $F_{IS}$}.
+\end{enumerate}
+
+%\end{itemize}
+
+}
+
+% REFERENCES
+% ----------
+
+\block[bodyoffsety=3cm,titleoffsety=3cm]{References}
+{
+\begin{small}
+
+  \hangindent=2cm Düsing, K (1883) Die Factoren, welche die Sexualität entscheiden (Dissertation vorgelegt).
+
+  \hangindent=2cm Fisher, R.A (1930) The Genetical Theory of Natural Selection (Clarendon Press, Oxford).
+
+  \hangindent=2cm Hamilton, WD (1967) Extraordinary sex ratios. 
+  \textit{Science}, \textbf{156} (3774): 477–88.
+
+  \hangindent=2cm Charlesworth, D. and Charlesworth, B. (1981) Allocation of resources to male and female functions in hermaphrodites. \textit{Biological Journal of the Linnean Society}, \textbf{15} (1): 57-74.
+  
+  \hangindent=2cm Herre, E. A. (1985) Sex ratio adjustment in fig wasps. \textit{Science}, \textbf{228} (4701): 896-898.
+
+  \hangindent=2cm David, P., Pujol, B., Viard, F., Castella, V., and Goudet, J. (2007) Reliable selfing rate estimates from imperfect population genetic data. \textit{Molecular ecology}, \textbf{16}(12): 2474-2487.
+
+  \hangindent=2cm Whitlock, M. C. (2011). $G'_{ST}$ and $D_{Jost}$ do not replace $F_{ST}$. \textit{Molecular ecology}, \textbf{20}(6), 1083-1091.
+\end{small}
+}
+
+% ACKNOWLEDGEMENTS
+% ----------------
+%\note[targetoffsetx=-8cm, targetoffsety=-9cm, width=25cm, innersep=1cm]
+%{
+%    \begin{wrapfigure}{r}{3cm}	
+%    \vspace{-23pt}
+%	\includegraphics[scale=3]{eu.jpg}
+%	
+%	\includegraphics[scale=3]{fp7.jpg}
+%	\end{wrapfigure}
+%	\textbf{Funding:} This research has received funding 
+%	from the People Programme (Marie Curie Actions) of the EU 7th Framework
+%	Programme (FP7/2007-2013), REA grant agreement no. 302868.
+%    
+%}
+
+
+\end{columns}
+
+% ----------------
+\end{document}
+\endinput
+%%
+%% End of file 
