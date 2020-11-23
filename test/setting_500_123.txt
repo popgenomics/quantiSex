@@ -1,0 +1,2 @@
+GenepopInputFile=genepop_500_123.txt
+MenuOptions=6.1

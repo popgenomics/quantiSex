@@ -1,0 +1,12 @@
+loci	gst	Gst	GGst	D	Fis	Fst	Fit
+Locus0	NA	NA	NA	  0	NA	NA	NA
+Locus1	NA	NA	NA	  0	NA	NA	NA
+Locus2	NA	NA	NA	  0	NA	NA	NA
+Locus3	NA	NA	NA	  0	NA	NA	NA
+Locus4	NA	NA	NA	  0	NA	NA	NA
+Locus5	NA	NA	NA	  0	NA	NA	NA
+Locus6	NA	NA	NA	  0	NA	NA	NA
+Locus7	NA	NA	NA	  0	NA	NA	NA
+Locus8	NA	NA	NA	  0	NA	NA	NA
+Locus9	NA	NA	NA	  0	NA	NA	NA
+Global	NA	NA	NA	NA	NA	NA	NA

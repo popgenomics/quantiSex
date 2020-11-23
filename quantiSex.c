@@ -6,7 +6,7 @@
 #include <gsl/gsl_randist.h>
 #include <gsl/gsl_statistics.h>
 #include <gsl/gsl_permutation.h>
-#define VERSION "26.04.2018"
+#define VERSION "22.08.2018"
 #define DEPENDENCY "None\n"
 #define MAX_NUMBER_OF_INITIAL_NTRL_ALLELES 999	// number of segregating alleles when generating the first parental population
 #define RANGE 0.1	// value in [0;1] to modify the current allelic effect between [(1-RANGE) x current_value ; (1+RANGE) * current_value].
@@ -41,11 +41,11 @@ void replacement(gsl_rng* r, Deme* population, Deme* newPopulation, const int nD
 void writeNindividuals(const Deme* population, const int nDemes, const double extinction, const double migration, const int seed);
 void genePop(Deme* population, const int nDemes, const int nNtrlLoci, const int seed, int time);
 void checkCommandLine(int argc);
-void statisticsPopulations(Deme* population, const int nDemes, const int maxIndPerDem, const int nQuantiLoci, const int fecundity, const double migration, const double extinction, const int recolonization, const int sexualSystem, const double sexAvantage, const int seed, int time, const double selfingRate, const int colonizationModel, const double global_fst_cm, const double global_fst_coal, const double global_gpst, const double global_D, const double global_Fis);
+void statisticsPopulations(Deme* population, const int nDemes, const int maxIndPerDem, const int nQuantiLoci, const int fecundity, const double migration, const double extinction, const int recolonization, const int sexualSystem, const double sexAvantage, const int seed, int time, const double selfingRate, const int colonizationModel, const double global_fst_cm, const double global_fst_coal, const double global_gpst, const double global_D, const double global_Fis, double avg_nc, double avg_Hs, double avg_Htot, double avg_Ho);
 double fstMullon(const int maxIndPerDem, const double extinction, const int recolonization, const double migration);
 double fstRousset(const int maxIndPerDem, const double extinction, const int recolonization, const double migration, const int colonizationModel);
 void sexInvador(gsl_rng* r, Deme* population, const int nDemes, const int* extinctionStatus, const double sexAvantage, const int sexualSystem, const int fecundity);
-void global_stat(Deme* population, const int nDemes, const long nNtrlLoci, double* diff_stats);
+void global_stat(Deme* population, const int nDemes, const long nNtrlLoci, double* diff_stats, double* polym_stats);
 void nc(const Deme* population, const int nDemes, const int nNtrlLoci, const int locus, double* target);
 double heteroZ(const double* cont_table_tot);
 
@@ -73,7 +73,8 @@ int main(int argc, char *argv[]){
 	const int sexualSystem = atoi(argv[14]);    // 0 = only hermaphrodites; 1 = XY system; 2 = ZW system
 	const double sexAvantage = atof(argv[15]); // avantage confered by the Y or Z chromosome over hermaphrodites
 	const double selfingRate = atof(argv[16]); // probability to have an ovule being fertilized by sperm from the same individual
-	const int seed = atoi(argv[17]);
+	const int lapse_stats = atoi(argv[17]); // print statistics every "lapse_stats" generations
+	const int seed = atoi(argv[18]);
 
 	// Random generator
         const gsl_rng_type *T;
@@ -86,8 +87,10 @@ int main(int argc, char *argv[]){
 
 	// array of statistics summaryzing the genetic differentiation
 	double* diff_stats = NULL;
+	double* polym_stats = NULL;
 	diff_stats = malloc(4 * sizeof(double));
-	if( diff_stats == NULL){
+	polym_stats = malloc(4 * sizeof(double));
+	if( diff_stats == NULL || polym_stats == NULL){
 		exit(0);
 	}	
 
@@ -100,12 +103,18 @@ int main(int argc, char *argv[]){
 
 	initializePopulation(r, population, nDemes, maxIndPerDem, nNtrlLoci, nQuantiLoci, fecundity);
 
-	// fst
+	// fst, gst, gpst, Jost D
 	double global_fst_cm = 0.0;
 	double global_fst_coal = 0.0;
 	double global_gpst = 0.0;
 	double global_D = 0.0;
 	double global_Fis = 0.0;
+
+	// polymorphisms
+	double avg_nc = 0.0;
+	double avg_Hs = 0.0;
+	double avg_Htot = 0.0;
+	double avg_Ho = 0.0;
 
 	// Evolution of the metapopulation
 	for(i=0; i<=nGeneration; i++){	// start of the loop 'i' over the generations
@@ -145,19 +154,27 @@ int main(int argc, char *argv[]){
 //		}
 
 		//if( i == nGeneration ){
-		if( i%10==0 ){
-			for(j=0; j<5; j++){
+		if( i%lapse_stats==0 ){
+			for(j=0; j<5; ++j){
 				diff_stats[j] = 0.0;
 			}
-
-			global_stat(population, nDemes, nNtrlLoci, diff_stats);
+			
+			for(j=0; j<4; ++j){
+				polym_stats[j] = 0.0;
+			}
+			
+			global_stat(population, nDemes, nNtrlLoci, diff_stats, polym_stats);
 			global_fst_cm = diff_stats[0];
 			global_fst_coal = diff_stats[1];
 			global_gpst = diff_stats[2];
 			global_D = diff_stats[3];
-			global_Fis = diff_stats[4];	
+			global_Fis = diff_stats[4];
+			avg_nc = polym_stats[0];
+			avg_Hs = polym_stats[1];
+			avg_Htot = polym_stats[2];
+			avg_Ho = polym_stats[3];
 
-			statisticsPopulations(newPopulation, nDemes, maxIndPerDem, nQuantiLoci, fecundity, migration, extinction, recolonization, sexualSystem, sexAvantage, seed, i, selfingRate, colonizationModel, global_fst_cm, global_fst_coal, global_gpst, global_D, global_Fis);
+			statisticsPopulations(newPopulation, nDemes, maxIndPerDem, nQuantiLoci, fecundity, migration, extinction, recolonization, sexualSystem, sexAvantage, seed, i, selfingRate, colonizationModel, global_fst_cm, global_fst_coal, global_gpst, global_D, global_Fis, avg_nc, avg_Hs, avg_Htot, avg_Ho);
 //			genePop(newPopulation, nDemes, nNtrlLoci, seed, i);
 		}
 
@@ -183,6 +200,9 @@ int main(int argc, char *argv[]){
 		libererMemoirePopulation(newPopulation, nDemes);
 		free(newPopulation);
 	}	// end of the loop 'i' over the generations
+	
+	free(diff_stats);
+	free(polym_stats);
 	libererMemoirePopulation(population, nDemes);
 	free(population);
 	return(0);
@@ -937,7 +957,7 @@ void genePop(Deme* population, const int nDemes, const int nNtrlLoci, const int 
 
 }
 
-void statisticsPopulations(Deme* population, const int nDemes, const int maxIndPerDem, const int nQuantiLoci, const int fecundity, const double migration, const double extinction, const int recolonization, const int sexualSystem, const double sexAvantage, const int seed, int time, const double selfingRate, const int colonizationModel, const double global_fst_cm, const double global_fst_coal, const double global_gpst, const double global_D, const double global_Fis){
+void statisticsPopulations(Deme* population, const int nDemes, const int maxIndPerDem, const int nQuantiLoci, const int fecundity, const double migration, const double extinction, const int recolonization, const int sexualSystem, const double sexAvantage, const int seed, int time, const double selfingRate, const int colonizationModel, const double global_fst_cm, const double global_fst_coal, const double global_gpst, const double global_D, const double global_Fis, double avg_nc, double avg_Hs, double avg_Htot, double avg_Ho){
 	// function that calculates the mean female allocation, its standard deviation and the percentage of cosexuals in the metapopulation
 	// also computes FST_var = var(p)/(1-p) and FST_coal = (Htot - Hs) / Htot
 	int i = 0;
@@ -961,7 +981,8 @@ void statisticsPopulations(Deme* population, const int nDemes, const int maxIndP
 	fichierSortie = fopen(nomFichierSortie, "r");
 	if(fichierSortie == NULL){
 		fichierSortie = fopen(nomFichierSortie, "a");
-		fprintf(fichierSortie, "nDemes\tnIndMaxPerDeme\tNtot\tnQuantiLoci\tselfingRate\tfecundity\tmigRate\textRate\tcolonizationModel\trecolonization\tatGeneration\tsexSystem\tsexAvantage\tseed\tmeanFemAlloc\tsdFemAlloc\tmeanFemAllocCosexual\tsdFemAllocCosexual\tcosexualProportion\tobsFST_var\tobsFST_coal\tobsGST_p\tobsJostD\tobsFIS\texpFST_Nmax\texpFST_Nobs\texpFST_Rousset_Nmax\n");
+		//fprintf(fichierSortie, "nDemes\tnIndMaxPerDeme\tNtot\tnQuantiLoci\tselfingRate\tfecundity\tmigRate\textRate\tcolonizationModel\trecolonization\tatGeneration\tsexSystem\tsexAvantage\tseed\tmeanFemAlloc\tsdFemAlloc\tmeanFemAllocCosexual\tsdFemAllocCosexual\tcosexualProportion\tobsFST_var\tobsFST_coal\tobsGST_p\tobsJostD\tobsFIS\texpFST_Nmax\texpFST_Nobs\texpFST_Rousset_Nmax\n");
+		fprintf(fichierSortie, "nDemes\tnIndMaxPerDeme\tNtot\tnQuantiLoci\tselfingRate\tfecundity\tmigRate\textRate\tcolonizationModel\trecolonization\tatGeneration\tsexSystem\tsexAvantage\tseed\tmeanFemAlloc\tsdFemAlloc\tmeanFemAllocCosexual\tsdFemAllocCosexual\tcosexualProportion\tobs_nc\tobs_Hs\tobs_Htot\tobs_Ho\tobsFST_var\tobsFST_coal\tobsGST_p\tobsJostD\tobsFIS\texpFST_Nmax\texpFST_Nobs\texpFST_Rousset_Nmax\n"); 
 		fclose(fichierSortie);
 	}else{
 		fclose(fichierSortie);
@@ -1023,14 +1044,14 @@ void statisticsPopulations(Deme* population, const int nDemes, const int maxIndP
 //			colonizationModelTMP = "propagulePool";
 		}
 
-		fprintf(fichierSortie, "%d\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%s\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\n", nDemes, maxIndPerDem, nIndividusTotal, nQuantiLoci, selfingRate, fecundity, migration, extinction, colonizationModelTMP, recolonization, time, sexualSystem, sexAvantage, seed, meanAllocFemale, sdAllocFemale, meanAllocFemaleCosexual, sdAllocFemaleCosexual, cosexualProportion, global_fst_cm, global_fst_coal, global_gpst, global_D, global_Fis, fstValue, fstValueDensity, fstRoussetValue);
+		fprintf(fichierSortie, "%d\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%s\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\n", nDemes, maxIndPerDem, nIndividusTotal, nQuantiLoci, selfingRate, fecundity, migration, extinction, colonizationModelTMP, recolonization, time, sexualSystem, sexAvantage, seed, meanAllocFemale, sdAllocFemale, meanAllocFemaleCosexual, sdAllocFemaleCosexual, cosexualProportion, avg_nc, avg_Hs, avg_Htot, avg_Ho, global_fst_cm, global_fst_coal, global_gpst, global_D, global_Fis, fstValue, fstValueDensity, fstRoussetValue);
 		fclose(fichierSortie);
 	}
 }
 
 void checkCommandLine(int argc){
-	if(argc != 18){
-		printf("\n%sThe number of provided arguments is not correct.%s\nYou provided %s%d%s argument while %s17%s are expected:\n\t\
+	if(argc != 19){
+		printf("\n%sThe number of provided arguments is not correct.%s\nYou provided %s%d%s argument while %s18%s are expected:\n\t\
 		%s1.%s  Number of demes (>0)\n\t\
 		%s2.%s  Max number of individuals per deme (>0)\n\n\t\
 		%s3.%s  Number of generations (>0)\n\t\
@@ -1047,9 +1068,10 @@ void checkCommandLine(int argc){
 		%s14.%s sexualSystem is equal to 0 if autosomal, equal to 1 if XY and equal to 2 if ZW\n\t\
 		%s15.%s Sexual effects of heterogametic sex (if equal to 1.5 in XY system, males have a 50 percent advantage to sire available ovules). Required but neglected if sexualSystem == 0\n\n\t\
 		%s16.%s Selfing rate of hermaphrodites, fixed over time (in [0-1])\n\n\t\
-		%s17.%s Seed for the random generator (>0)\n\n\
-		%s\tExample:%s ./quantiSex 100 100 100 50 10 0.0001 1 0.00001 100 1 0.1 1 1 0 2 0.1 123\n\n\
-		version: %s\n\n\t\tdependencies: \t%s\n\n", KRED, STOP, KRED, argc-1, STOP, KRED, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KRED, STOP, VERSION, DEPENDENCY);
+		%s17.%s Frequency at which statistics are written in the outfile (>0)\n\n\t\
+		%s18.%s Seed for the random generator (>0)\n\n\
+		%s\tExample:%s ./quantiSex 100 100 100 50 10 0.0001 1 0.00001 100 1 0.1 1 1 0 2 0.1 20 123\n\n\
+		version: %s\n\n\t\tdependencies: \t%s\n\n", KRED, STOP, KRED, argc-1, STOP, KRED, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KMAG, STOP, KRED, STOP, VERSION, DEPENDENCY);
 
 		exit(0);
 	}
@@ -1245,9 +1267,10 @@ double heteroZ(const double* cont_table){
 	
 }
 
-void global_stat(Deme* population, const int nDemes, const long nNtrlLoci, double* diff_stats){
+void global_stat(Deme* population, const int nDemes, const long nNtrlLoci, double* diff_stats, double* polym_stats){
 	double* nc_Hs_Htot_Ho = NULL;
-	nc_Hs_Htot_Ho = malloc(4 * sizeof(double)); // contains [nc, Hs, Htot]
+	nc_Hs_Htot_Ho = malloc(4 * sizeof(double)); // contains [nc, Hs, Htot, Ho]
+	
 	if( nc_Hs_Htot_Ho == NULL ){
 		exit(0);
 	}
@@ -1277,6 +1300,7 @@ void global_stat(Deme* population, const int nDemes, const long nNtrlLoci, doubl
 	}
 
 	// global statistics
+	// locus specific values of nc, Hs, Htot and Ho
 	double nc_k = 0.0;
 	double Hs = 0.0;
 	double Htot = 0.0;
@@ -1365,6 +1389,18 @@ void global_stat(Deme* population, const int nDemes, const long nNtrlLoci, doubl
 		Hs = nc_Hs_Htot_Ho[1];
 		Htot = nc_Hs_Htot_Ho[2];
 		Ho = nc_Hs_Htot_Ho[3];
+
+		// global nc
+		nc_Hs_Htot_Ho[0] += nc_k;
+		
+		// global Hs
+		nc_Hs_Htot_Ho[1] += Hs;
+		
+		// global Htot
+		nc_Hs_Htot_Ho[2] += Htot;
+		
+		// global Ho
+		nc_Hs_Htot_Ho[3] += Ho;
 	
 		// global Fst charles
 		num_fst_cm += var_among_patches[k] * nc_k;
@@ -1430,6 +1466,19 @@ void global_stat(Deme* population, const int nDemes, const long nNtrlLoci, doubl
 		global_Fis = num_Fis / denom_Fis;
 	}
 	diff_stats[4] = global_Fis;
+
+	// polymorphism
+	// global nc
+	polym_stats[0] += nc_k / (1.0*nNtrlLoci);
+	
+	// global Hs
+	polym_stats[1] += Hs / (1.0*nNtrlLoci);
+	
+	// global Htot
+	polym_stats[2] += Htot / (1.0*nNtrlLoci);
+	
+	// global Ho
+	polym_stats[3] += Ho / (1.0*nNtrlLoci);
 
 //	printf("Fst_CM\tFst_coal\tGst_p\tJostD\n");
 //	printf("%f\t%f\t%f\t%f\n", global_fst_cm, global_fst_coal, global_gpst, global_D); 
