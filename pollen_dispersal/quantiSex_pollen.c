@@ -40,11 +40,12 @@ void weightedSample(gsl_rng* r, const double* liste, const double* weights, doub
 void replacement(gsl_rng* r, Deme* population, Deme* newPopulation, const int nDemes, const int maxIndPerDem, const int nNtrlLoci, const int nQuantiLoci, const int nImmigrants[], int nProducedSeeds[], int extinctionStatus[], const int recolonization, const int generation, const int sexualSystem, const int colonizationModel);
 void writeNindividuals(const Deme* population, const int nDemes, const double extinction, const double migration, const int seed);
 void checkCommandLine(int argc);
-void statisticsPopulations(Deme* population, const int nDemes, const int maxIndPerDem, const int nQuantiLoci, const int fecundity, const double migration, const double extinction, const double dispersal, const int recolonization, const int sexualSystem, const double sexAvantage, const int seed, int time, const double selfingRate, const int colonizationModel, const double global_fst_cm, const double global_fst_coal, const double global_gpst, const double global_D, const double global_Fis, double avg_nc, double avg_Hs, double avg_Htot, double avg_Ho);
+void statisticsPopulations(Deme* population, const int nDemes, const int maxIndPerDem, const int nQuantiLoci, const int fecundity, const double migration, const double extinction, const double dispersal, const int recolonization, const int sexualSystem, const double sexAvantage, const int seed, int time, const double selfingRate, const int colonizationModel, const double global_fst_cm, const double global_fst_coal, const double global_gpst, const double global_D, const double global_Fis, double avg_nc, double avg_Hs, double avg_Htot, double avg_Ho, const double global_Fst_anova, const double global_Fis_anova, const double global_Fit_anova);
 double fstMullon(const int maxIndPerDem, const double extinction, const int recolonization, const double migration);
 double fstRousset(const int maxIndPerDem, const double extinction, const int recolonization, const double migration, const int colonizationModel);
 void sexInvador(gsl_rng* r, Deme* population, const int nDemes, const int* extinctionStatus, const double sexAvantage, const int sexualSystem, const int fecundity);
 void global_stat(Deme* population, const int nDemes, const long nNtrlLoci, double* diff_stats, double* polym_stats);
+void QoneQtwoQthree(const Deme* population, const int nDemes, const int nNtrlLoci, const int locus, double* target);
 void nc(const Deme* population, const int nDemes, const int nNtrlLoci, const int locus, double* target);
 double heteroZ(const double* cont_table_tot);
 int valueInArray(const float val, const int sizeArr, const int* array);
@@ -89,7 +90,7 @@ int main(int argc, char *argv[]){
 	// array of statistics summaryzing the genetic differentiation
 	double* diff_stats = NULL;
 	double* polym_stats = NULL;
-	diff_stats = malloc(4 * sizeof(double));
+	diff_stats = malloc(8 * sizeof(double));
 	polym_stats = malloc(4 * sizeof(double));
 	if( diff_stats == NULL || polym_stats == NULL){
 		exit(0);
@@ -111,6 +112,15 @@ int main(int argc, char *argv[]){
 	double global_D = 0.0;
 	double global_Fis = 0.0;
 
+	double global_Fst_anova = 0.0;
+	double global_Fis_anova = 0.0;
+	double global_Fit_anova = 0.0;
+	
+	global_Fst_anova+=0;
+	global_Fis_anova+=0;
+	global_Fit_anova+=0;
+//	printf("%lf %lf %lf\n", global_Fst_anova, global_Fis_anova, global_Fit_anova);
+	
 	// polymorphisms
 	double avg_nc = 0.0;
 	double avg_Hs = 0.0;
@@ -156,7 +166,7 @@ int main(int argc, char *argv[]){
 
 		//if( i == nGeneration ){
 		if( i%lapse_stats==0 ){
-			for(j=0; j<5; ++j){
+			for(j=0; j<8; ++j){
 				diff_stats[j] = 0.0;
 			}
 			
@@ -170,12 +180,18 @@ int main(int argc, char *argv[]){
 			global_gpst = diff_stats[2];
 			global_D = diff_stats[3];
 			global_Fis = diff_stats[4];
+
+			global_Fst_anova = diff_stats[5];
+			global_Fis_anova = diff_stats[6];
+			global_Fit_anova = diff_stats[7];
+//			printf("%lf %lf %lf\n", global_Fst_anova, global_Fis_anova, global_Fit_anova);
+
 			avg_nc = polym_stats[0];
 			avg_Hs = polym_stats[1];
 			avg_Htot = polym_stats[2];
 			avg_Ho = polym_stats[3];
-
-			statisticsPopulations(newPopulation, nDemes, maxIndPerDem, nQuantiLoci, fecundity, migration, extinction, dispersal, recolonization, sexualSystem, sexAvantage, seed, i, selfingRate, colonizationModel, global_fst_cm, global_fst_coal, global_gpst, global_D, global_Fis, avg_nc, avg_Hs, avg_Htot, avg_Ho);
+			
+			statisticsPopulations(newPopulation, nDemes, maxIndPerDem, nQuantiLoci, fecundity, migration, extinction, dispersal, recolonization, sexualSystem, sexAvantage, seed, i, selfingRate, colonizationModel, global_fst_cm, global_fst_coal, global_gpst, global_D, global_Fis, avg_nc, avg_Hs, avg_Htot, avg_Ho, global_Fst_anova, global_Fis_anova, global_Fit_anova);
 		}
 
 		//statisticsPopulations(newPopulation, nDemes, maxIndPerDem, nQuantiLoci, fecundity, migration, extinction, recolonization, sexualSystem, sexAvantage, seed, i, selfingRate, colonizationModel, fst_mean);
@@ -201,10 +217,16 @@ int main(int argc, char *argv[]){
 		free(newPopulation);
 	}	// end of the loop 'i' over the generations
 	
-	free(diff_stats);
-	free(polym_stats);
 	libererMemoirePopulation(population, nDemes);
+	
 	free(population);
+	
+//	printf("%lf\t%lf\t%lf\t%lf\n", polym_stats[0], polym_stats[1], polym_stats[2], polym_stats[3]);
+//	printf("%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\n", diff_stats[0], diff_stats[1], diff_stats[2], diff_stats[3], diff_stats[4], diff_stats[5], diff_stats[6], diff_stats[7]);
+	
+	free(polym_stats);	
+	free(diff_stats);
+	
 	return(0);
 }
 
@@ -1031,7 +1053,7 @@ void afficherPopulation(Deme* population, const int nDemes, const int nNtrlLoci,
 	}
 }
 
-void statisticsPopulations(Deme* population, const int nDemes, const int maxIndPerDem, const int nQuantiLoci, const int fecundity, const double migration, const double extinction, const double dispersal, const int recolonization, const int sexualSystem, const double sexAvantage, const int seed, int time, const double selfingRate, const int colonizationModel, const double global_fst_cm, const double global_fst_coal, const double global_gpst, const double global_D, const double global_Fis, double avg_nc, double avg_Hs, double avg_Htot, double avg_Ho){
+void statisticsPopulations(Deme* population, const int nDemes, const int maxIndPerDem, const int nQuantiLoci, const int fecundity, const double migration, const double extinction, const double dispersal, const int recolonization, const int sexualSystem, const double sexAvantage, const int seed, int time, const double selfingRate, const int colonizationModel, const double global_fst_cm, const double global_fst_coal, const double global_gpst, const double global_D, const double global_Fis, double avg_nc, double avg_Hs, double avg_Htot, double avg_Ho, const double global_Fst_anova, const double global_Fis_anova, const double global_Fit_anova){
 	// function that calculates the mean female allocation, its standard deviation and the percentage of cosexuals in the metapopulation
 	// also computes FST_var = var(p)/(1-p) and FST_coal = (Htot - Hs) / Htot
 	int i = 0;
@@ -1056,7 +1078,7 @@ void statisticsPopulations(Deme* population, const int nDemes, const int maxIndP
 	if(fichierSortie == NULL){
 		fichierSortie = fopen(nomFichierSortie, "a");
 		//fprintf(fichierSortie, "nDemes\tnIndMaxPerDeme\tNtot\tnQuantiLoci\tselfingRate\tfecundity\tmigRate\textRate\tcolonizationModel\trecolonization\tatGeneration\tsexSystem\tsexAvantage\tseed\tmeanFemAlloc\tsdFemAlloc\tmeanFemAllocCosexual\tsdFemAllocCosexual\tcosexualProportion\tobsFST_var\tobsFST_coal\tobsGST_p\tobsJostD\tobsFIS\texpFST_Nmax\texpFST_Nobs\texpFST_Rousset_Nmax\n");
-		fprintf(fichierSortie, "nDemes\tnIndMaxPerDeme\tNtot\tnQuantiLoci\tselfingRate\tfecundity\tmigRate\textRate\tpollenDispersal\tcolonizationModel\trecolonization\tatGeneration\tsexSystem\tsexAvantage\tseed\tmeanFemAlloc\tsdFemAlloc\tmeanFemAllocCosexual\tsdFemAllocCosexual\tcosexualProportion\tobs_nc\tobs_Hs\tobs_Htot\tobs_Ho\tobsFST_var\tobsFST_coal\tobsGST_p\tobsJostD\tobsFIS\texpFST_Nmax\texpFST_Nobs\texpFST_Rousset_Nmax\n"); 
+		fprintf(fichierSortie, "nDemes\tnIndMaxPerDeme\tNtot\tnQuantiLoci\tselfingRate\tfecundity\tmigRate\textRate\tpollenDispersal\tcolonizationModel\trecolonization\tatGeneration\tsexSystem\tsexAvantage\tseed\tmeanFemAlloc\tsdFemAlloc\tmeanFemAllocCosexual\tsdFemAllocCosexual\tcosexualProportion\tobs_nc\tobs_Hs\tobs_Htot\tobs_Ho\tobsFST_var\tobsFST_coal\tobsGST_p\tobsJostD\tobsFIS\tobsFst_anova\tobsFis_anova\tobsFit_anova\texpFST_Nmax\texpFST_Nobs\texpFST_Rousset_Nmax\n"); 
 		fclose(fichierSortie);
 	}else{
 		fclose(fichierSortie);
@@ -1118,7 +1140,7 @@ void statisticsPopulations(Deme* population, const int nDemes, const int maxIndP
 //			colonizationModelTMP = "propagulePool";
 		}
 
-		fprintf(fichierSortie, "%d\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%lf\t%s\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\n", nDemes, maxIndPerDem, nIndividusTotal, nQuantiLoci, selfingRate, fecundity, migration, extinction, dispersal, colonizationModelTMP, recolonization, time, sexualSystem, sexAvantage, seed, meanAllocFemale, sdAllocFemale, meanAllocFemaleCosexual, sdAllocFemaleCosexual, cosexualProportion, avg_nc, avg_Hs, avg_Htot, avg_Ho, global_fst_cm, global_fst_coal, global_gpst, global_D, global_Fis, fstValue, fstValueDensity, fstRoussetValue);
+		fprintf(fichierSortie, "%d\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%lf\t%s\t%d\t%d\t%d\t%lf\t%d\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\n", nDemes, maxIndPerDem, nIndividusTotal, nQuantiLoci, selfingRate, fecundity, migration, extinction, dispersal, colonizationModelTMP, recolonization, time, sexualSystem, sexAvantage, seed, meanAllocFemale, sdAllocFemale, meanAllocFemaleCosexual, sdAllocFemaleCosexual, cosexualProportion, avg_nc, avg_Hs, avg_Htot, avg_Ho, global_fst_cm, global_fst_coal, global_gpst, global_D, global_Fis, global_Fst_anova, global_Fis_anova, global_Fit_anova, fstValue, fstValueDensity, fstRoussetValue);
 		fclose(fichierSortie);
 	}
 }
@@ -1228,6 +1250,106 @@ for(i in commandArgs()){
 a=diffCalc(input, fst=T, pairwise=F, outfile=output)
 
 */
+
+void QoneQtwoQthree(const Deme* population, const int nDemes, const int nNtrlLoci, const int locus, double* target){
+	int nTot = 0;
+	int i = 0;
+	int j = 0;
+	long allele1 = 0;
+	long allele2 = 0;
+	double Q1 = 0.0; // proportion of homozygous individus: nHomozygous / nTot
+	double Q2 = 0.0; // proportion of homozygous within demes. It's the average over demes, weighted by the number of pairs within demes
+	double Q3 = 0.0; // proportion of homozygous among demes
+
+	// contengency table of alleles for the whole metapop	
+	double* cont_table_tot = NULL;
+	cont_table_tot = malloc((MAX_NUMBER_OF_INITIAL_NTRL_ALLELES+1)*sizeof(double));
+	
+	// contengency table of alleles for each deme	
+	double cont_table_demes[nDemes][MAX_NUMBER_OF_INITIAL_NTRL_ALLELES+1];
+	
+	if(cont_table_tot == NULL){
+		exit(0);
+	}
+
+	for(i=0; i<nDemes; i++){
+		for(j=0; j<MAX_NUMBER_OF_INITIAL_NTRL_ALLELES+1; j++){
+			cont_table_demes[i][j] = 0.0;
+		}
+	}
+	
+	for(i=0; i<MAX_NUMBER_OF_INITIAL_NTRL_ALLELES+1; i++){
+		cont_table_tot[i] = 0;
+	}	
+
+	for(i=0; i<nDemes; i++){
+		for(j=0; j<population[i].nIndividus; j++){
+			nTot += 1;
+			allele1 = population[i].ntrlLoci[2*nNtrlLoci*j + locus*2];
+			allele2 = population[i].ntrlLoci[2*nNtrlLoci*j + locus*2 + 1];
+			
+			cont_table_tot[allele1]++;
+			cont_table_tot[allele2]++;
+			cont_table_demes[i][allele1]++;
+			cont_table_demes[i][allele2]++;
+			
+			if(allele1==allele2){ // if homozygous
+				Q1 += 1.0;
+			}
+		}
+	}
+	
+	// Q1
+	Q1 /= nTot;
+	
+	// Q2
+	double num_Q2 = 0.0;
+	double denom_Q2 = 0.0;
+	double sqr_Pij = 0.0;
+	for(i=0; i<nDemes; i++){
+		sqr_Pij = 0.0;
+		for(j=0; j<MAX_NUMBER_OF_INITIAL_NTRL_ALLELES; j++){
+			sqr_Pij += pow(cont_table_demes[i][j]/(2.0*population[i].nIndividus), 2);
+		}
+		num_Q2 += sqr_Pij * 2.0*population[i].nIndividus * (2.0*population[i].nIndividus-1)/2.0;
+		denom_Q2 += 2.0*population[i].nIndividus * (2.0*population[i].nIndividus-1)/2.0;
+	}
+	Q2 = num_Q2/denom_Q2;
+	
+	// Q3
+	for(i=0; i<MAX_NUMBER_OF_INITIAL_NTRL_ALLELES+1; i++){
+		Q3 += pow(cont_table_tot[i]/(2.0*nTot), 2);
+	}
+	
+//	printf("Q1=%lf\nQ2=%lf\nQ3=%lf\n\n", Q1, Q2, Q3);
+	
+	// compute n, S1 and S2 (section 7.6 de la doc de la version 4.7 de genePop)
+	// nc=(S1-S2/S1)/(n-1)
+	int n = 0; // number of non-empty groups
+	int S1 = 0; // total sample size
+	double S2 = 0.0; // sum of squared group sizes
+	
+	for(i=0; i<MAX_NUMBER_OF_INITIAL_NTRL_ALLELES+1; i++){
+		if(cont_table_tot[i] > 0){
+			++n;
+			S1 = S1 + cont_table_tot[i];
+			S2 = S2 + pow(cont_table_tot[i], 2); 
+		}
+	}
+
+	
+	if( n<=1 ){
+		target[0] = 0.0;
+	}else{
+		target[0] = (S1-S2/S1)/(n-1.0);
+	}
+	
+	target[1] = Q1;
+	target[2] = Q2;
+	target[3] = Q3;
+	
+	free(cont_table_tot);
+}
 
 
 void nc(const Deme* population, const int nDemes, const int nNtrlLoci, const int locus, double* target){
@@ -1343,10 +1465,12 @@ double heteroZ(const double* cont_table){
 }
 
 void global_stat(Deme* population, const int nDemes, const long nNtrlLoci, double* diff_stats, double* polym_stats){
+	double* nc_Q1_Q2_Q3 = NULL;
 	double* nc_Hs_Htot_Ho = NULL;
+	nc_Q1_Q2_Q3 = malloc(4 * sizeof(double)); // contains [nc, Q1, Q2, Q3]
 	nc_Hs_Htot_Ho = malloc(4 * sizeof(double)); // contains [nc, Hs, Htot, Ho]
 	
-	if( nc_Hs_Htot_Ho == NULL ){
+	if( nc_Q1_Q2_Q3 == NULL || nc_Hs_Htot_Ho == NULL ){
 		exit(0);
 	}
 
@@ -1375,6 +1499,11 @@ void global_stat(Deme* population, const int nDemes, const long nNtrlLoci, doubl
 	}
 
 	// global statistics
+	// locus specific values of Q1, Q2, Q3
+	double Q1 = 0.0;
+	double Q2 = 0.0;
+	double Q3 = 0.0;
+	
 	// locus specific values of nc, Hs, Htot and Ho
 	double nc_k = 0.0;
 	double Hs = 0.0;
@@ -1388,7 +1517,7 @@ void global_stat(Deme* population, const int nDemes, const long nNtrlLoci, doubl
 	// global fst coal
 	double num_fst_coal = 0.0;
 	double denom_fst_coal = 0.0;
-
+	
 	// global g'st
 	double num_gpst = 0.0;
 	double denom_gpst = 0.0;
@@ -1400,6 +1529,18 @@ void global_stat(Deme* population, const int nDemes, const long nNtrlLoci, doubl
 	// global Fis
 	double num_Fis = 0.0;
 	double denom_Fis = 0.0;
+	
+	// global fst ANOVA
+	double num_fst_anova = 0.0;
+	double denom_fst_anova = 0.0;
+	
+	// global fis ANOVA
+	double num_fis_anova = 0.0;
+	double denom_fis_anova = 0.0;
+	
+	// global fit ANOVA
+	double num_fit_anova = 0.0;
+	double denom_fit_anova = 0.0;
 	
 	// z_bar
 	for(k=0; k<nNtrlLoci; k++){ // loop over loci k
@@ -1445,6 +1586,7 @@ void global_stat(Deme* population, const int nDemes, const long nNtrlLoci, doubl
 		Htot = 0.0;
 		Ho = 0.0;
 		for(j=0; j<3; j++){
+			nc_Q1_Q2_Q3[j] = 0.0;
 			nc_Hs_Htot_Ho[j] = 0.0;
 		}
 
@@ -1458,8 +1600,29 @@ void global_stat(Deme* population, const int nDemes, const long nNtrlLoci, doubl
 			}
 		}
 		var_tot[k] = var_tot[k]/cnt;
-
+		
+		// with Hs Htot Ho
 		nc(population, nDemes, nNtrlLoci, k, nc_Hs_Htot_Ho);
+		
+		// with Q1 Q2 Q3
+		QoneQtwoQthree(population, nDemes, nNtrlLoci, k, nc_Q1_Q2_Q3);
+		Q1 = nc_Q1_Q2_Q3[1];
+		Q2 = nc_Q1_Q2_Q3[2];
+		Q3 = nc_Q1_Q2_Q3[3];
+
+		// Fst ANOVA	
+		num_fst_anova += (Q2-Q3) * nc_Q1_Q2_Q3[0];
+		denom_fst_anova += (1-Q3) * nc_Q1_Q2_Q3[0];
+		
+		// Fis ANOVA	
+		num_fis_anova += (Q1-Q2) * nc_Q1_Q2_Q3[0];
+		denom_fis_anova += (1-Q2) * nc_Q1_Q2_Q3[0];
+		
+		// Fit ANOVA	
+		num_fit_anova += (Q1-Q3) * nc_Q1_Q2_Q3[0];
+		denom_fit_anova += (1-Q3) * nc_Q1_Q2_Q3[0];
+		
+		// continue the computations	
 		nc_k = nc_Hs_Htot_Ho[0];
 		Hs = nc_Hs_Htot_Ho[1];
 		Htot = nc_Hs_Htot_Ho[2];
@@ -1476,7 +1639,7 @@ void global_stat(Deme* population, const int nDemes, const long nNtrlLoci, doubl
 		
 		// global Ho
 		nc_Hs_Htot_Ho[3] += Ho;
-	
+		
 		// global Fst charles
 		num_fst_cm += var_among_patches[k] * nc_k;
 		denom_fst_cm += var_tot[k] * nc_k;
@@ -1542,6 +1705,32 @@ void global_stat(Deme* population, const int nDemes, const long nNtrlLoci, doubl
 	}
 	diff_stats[4] = global_Fis;
 
+	double global_Fst_anova = 0.0;
+	if( denom_fst_anova == 0.0){
+		global_Fst_anova = -9;
+	}else{
+		global_Fst_anova = num_fst_anova / denom_fst_anova;
+	}
+	diff_stats[5] = global_Fst_anova; 
+	
+	double global_Fis_anova = 0.0;
+	if( denom_fis_anova == 0.0){
+		global_Fis_anova = -9;
+	}else{
+		global_Fis_anova = num_fis_anova / denom_fis_anova;
+	}
+	diff_stats[6] = global_Fis_anova; 
+	
+	double global_Fit_anova = 0.0;
+	if( denom_fit_anova == 0.0){
+		global_Fit_anova = -9;
+	}else{
+		global_Fit_anova = num_fit_anova / denom_fit_anova;
+	}
+	diff_stats[7] = global_Fit_anova; 
+	
+//	printf("Fst=%lf\nFis=%lf\nFit=%lf\n\n",  global_Fst_anova, global_Fis_anova, global_Fit_anova);
+	
 	// polymorphism
 	// global nc
 	polym_stats[0] += nc_k / (1.0*nNtrlLoci);
@@ -1563,6 +1752,7 @@ void global_stat(Deme* population, const int nDemes, const long nNtrlLoci, doubl
 	free(z_bar);
 	free(var_tot);
 	free(var_among_patches);
+	free(nc_Q1_Q2_Q3);
 	free(nc_Hs_Htot_Ho);
 }
 
