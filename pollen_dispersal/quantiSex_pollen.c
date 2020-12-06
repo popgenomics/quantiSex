@@ -119,6 +119,7 @@ int main(int argc, char *argv[]){
 	global_Fst_anova+=0;
 	global_Fis_anova+=0;
 	global_Fit_anova+=0;
+
 //	printf("%lf %lf %lf\n", global_Fst_anova, global_Fis_anova, global_Fit_anova);
 	
 	// polymorphisms
