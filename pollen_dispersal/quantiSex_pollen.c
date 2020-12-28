@@ -6,7 +6,7 @@
 #include <gsl/gsl_randist.h>
 #include <gsl/gsl_statistics.h>
 #include <gsl/gsl_permutation.h>
-#define VERSION "23.11.2020"
+#define VERSION "28.12.2020"
 #define DEPENDENCY "None\n"
 #define MAX_NUMBER_OF_INITIAL_NTRL_ALLELES 999	// number of segregating alleles when generating the first parental population
 #define RANGE 0.1	// value in [0;1] to modify the current allelic effect between [(1-RANGE) x current_value ; (1+RANGE) * current_value].
@@ -474,10 +474,13 @@ void panmixie(gsl_rng* r, Deme* population, Deme* newPopulation, const int nDeme
 
 			
 			for(j=0; j<N; j++){ // loop over the N mothers to count the number of females fertilized by pollen from different demes
-				hybridization = gsl_ran_binomial(r, dispersal, 1);
-				if(hybridization == 1){
-					hybridizedFemales_tmp[nHybridizedFemales] = j;
-					nHybridizedFemales += 1;
+				autofec = gsl_ran_binomial(r, selfingRate, 1);
+				if(autofec==0){ // there is pollen dispersal only if there is no self-fertilization
+					hybridization = gsl_ran_binomial(r, dispersal, 1);
+					if(hybridization == 1){
+						hybridizedFemales_tmp[nHybridizedFemales] = j;
+						nHybridizedFemales += 1;
+					}
 				}
 			}
 			
